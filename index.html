@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <meta
+      http-equiv="X-Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <script src="Scripts/home.js" defer></script>
+    <link rel="stylesheet" href="Styles/home.css" />
+    <title>Snackin' Back</title>
+  </head>
+  <body>
+    <main class="page-center">
+      <section class="info-section">
+        <div class="logo-all">
+          <div class="logo-circle">
+            <img
+              src="Imgs/burger-icon.png"
+              alt="burger-icon"
+              class="burger-icon"
+            />
+          </div>
+          <h1>Snackin' Back</h1>
+        </div>
+
+        <section class="dialog-box">
+          <div class="box-names">
+            <h1 class="main-name">VENDA MAIS, ANOTE MENOS</h1>
+            <div>
+              <p class="secondary-name">
+                Otimize as suas relações com os clientes utilizando o nosso novo
+                APP de gerenciamento de vendas e estoque.
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <a href="Pages/data.html"
+              ><button class="button-seeMore">SAIBA MAIS...</button></a
+            >
+          </div>
+        </section>
+      </section>
+
+      <section class="img-section">
+        <img src="Imgs/burger.jpg" alt="" />
+      </section>
+    </main>
+  </body>
+</html>

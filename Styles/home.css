@@ -1,0 +1,100 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.page-center {
+  display: flex;
+  position: fixed;
+  height: 100%;
+}
+
+.info-section {
+  width: 50%;
+  padding: 10px;
+  background-color: #bfd202;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 1px 1px 50px rgb(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+.img-section {
+  width: 50%;
+  height: 100%;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.logo-all {
+  display: flex;
+  align-items: center;
+  gap: 1%;
+  flex-direction: row;
+  padding: 10px;
+}
+
+.logo-circle {
+  background-color: #0a5247;
+  color: #bfd202;
+  border-radius: 100%;
+  height: 100px;
+  width: 100px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.burger-icon {
+  filter: invert(63%) sepia(86%) saturate(614%) hue-rotate(21deg)
+    brightness(105%) contrast(98%);
+}
+
+.dialog-box {
+  display: flex;
+  height: 500px;
+  flex-direction: column;
+  margin: auto;
+  justify-content: space-around;
+}
+
+.button-seeMore {
+  padding: 10px;
+  width: 150px;
+  height: 50px;
+  border-radius: 10px;
+  border: 0;
+  box-shadow: 1px 1px 50px #b9c812;
+  transition: 300ms all;
+}
+.button-seeMore:hover {
+  background-color: #0a5247;
+  color: white;
+  cursor: pointer;
+}
+
+.box-names {
+  width: 600px;
+}
+
+.main-name {
+  font-size: 50px;
+}
+
+.secondary-name {
+  font-size: 20px;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+.button-seeMore:hover a {
+  color: white;
+}

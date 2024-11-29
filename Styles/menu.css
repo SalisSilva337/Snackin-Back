@@ -101,8 +101,8 @@ nav button:hover {
   opacity: 0.8;
   cursor: pointer;
 }
-
 .modalContent input {
+  padding: 5px;
   width: 150px;
   height: 50px;
   background-color: #eda3a3;
@@ -115,4 +115,23 @@ nav button:hover {
   background-color: #eda3a3;
   border: 0;
   box-shadow: 1px 1px 10px rgb(0, 0, 0, 0.1);
+}
+.imgItemDivModal {
+  width: 150px;
+  height: 150px;
+  background-color: #eda3a3;
+}
+.mainItemDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.inputDescription {
+  width: 250px;
+  background-color: #e7c8c8;
+}
+.inputsDiv {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }

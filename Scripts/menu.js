@@ -11,6 +11,12 @@ createItem.addEventListener("click", () => {
   let createItemLabel = document.createElement("h3");
   let closeButton = document.createElement("button");
 
+  let imgItemDivModal = document.createElement("div");
+  let imgItemModal = document.createElement("img");
+
+  //inputs
+  let inputsDiv = document.createElement("div");
+
   let labelName = document.createElement("label");
   labelName.textContent = "Nome";
   let inputName = document.createElement("input");
@@ -20,6 +26,7 @@ createItem.addEventListener("click", () => {
   let selectCategory = document.createElement("select");
 
   let inputDescription = document.createElement("input");
+  inputDescription.className = "inputDescription";
 
   let labelPrice = document.createElement("label");
   labelPrice.textContent = "Preço";
@@ -27,15 +34,13 @@ createItem.addEventListener("click", () => {
 
   let mainItemDiv = document.createElement("div");
 
+  //div de confirmacao
   let buttonCreate = document.createElement("button");
   let buttonCancel = document.createElement("button");
   let confirmDiv = document.createElement("div");
 
   createItemLabel.textContent = "Crie um novo Item";
   closeButton.textContent = "X";
-
-  buttonInfo.textContent = "Informações";
-  buttonComplements.textContent = "Adicionais";
 
   buttonCancel.textContent = "Cancelar";
   buttonCreate.textContent = "Criar";
@@ -44,6 +49,9 @@ createItem.addEventListener("click", () => {
   labelDiv.appendChild(createItemLabel);
   labelDiv.appendChild(closeButton);
 
+  imgItemDivModal.className = "imgItemDivModal";
+  imgItemDivModal.appendChild(imgItemModal);
+
   for (let index = 0; index < categoryOptions.length; index++) {
     let option = document.createElement("option");
     option.textContent = categoryOptions[index];
@@ -51,15 +59,21 @@ createItem.addEventListener("click", () => {
     selectCategory.appendChild(option);
   }
 
-  mainItemDiv.appendChild(labelName);
-  mainItemDiv.appendChild(inputName);
-  mainItemDiv.appendChild(labelCategory);
-  mainItemDiv.appendChild(selectCategory);
+  inputsDiv.className = "inputsDiv";
+  mainItemDiv.className = "mainItemDiv";
 
-  mainItemDiv.appendChild(inputDescription);
+  mainItemDiv.appendChild(imgItemDivModal);
+  inputsDiv.appendChild(labelName);
+  inputsDiv.appendChild(inputName);
+  inputsDiv.appendChild(labelCategory);
+  inputsDiv.appendChild(selectCategory);
 
-  mainItemDiv.appendChild(labelPrice);
-  mainItemDiv.appendChild(inputPrice);
+  inputsDiv.appendChild(inputDescription);
+
+  inputsDiv.appendChild(labelPrice);
+  inputsDiv.appendChild(inputPrice);
+
+  mainItemDiv.appendChild(inputsDiv);
 
   confirmDiv.appendChild(buttonCancel);
   confirmDiv.appendChild(buttonCreate);

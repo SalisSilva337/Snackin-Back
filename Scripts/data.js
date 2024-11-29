@@ -1,7 +1,6 @@
 let clientAdd = document.querySelector(".client-add");
 let mainArea = document.querySelector(".mainArea");
 let options = ["Débito", "Credito", "Pix", "Dinheiro"];
-let pages = ["../index.html", "../Pages/data.html"];
 
 //Botao de adicionar Cliente
 clientAdd.addEventListener("click", () => {

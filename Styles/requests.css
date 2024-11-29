@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Ubuntu";
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 20px;
+  margin-top: 50px;
+  gap: 70px;
+}
+h1 {
+  font-size: 30px;
+}
+h2 {
+  font-size: 20px;
+  font-weight: 400;
+}
+span {
+  font-weight: 400;
+}
+.labelSection {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.gridSection {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.grid {
+  background-color: #e7c8c8;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}

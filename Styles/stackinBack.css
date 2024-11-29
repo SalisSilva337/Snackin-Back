@@ -5,6 +5,10 @@
   margin: 0;
   font-family: "Ubuntu";
 }
+.logo {
+  height: 200px;
+  width: 200px;
+}
 .mainSection {
   display: flex;
   flex-direction: row;
@@ -12,28 +16,45 @@
 .sideBar {
   display: flex;
   flex-direction: column;
-  width: 350px;
+  width: 140px;
   background-color: #ffffff;
   height: 100vh;
   gap: 10px;
   align-items: center;
   border-right: 1px solid rgb(204, 203, 203);
+  transition: 0.5s all;
+}
+.buttonsNav {
+  width: 90%;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+}
+.sideBar:hover {
+  width: 350px;
 }
 .sideBar button {
-  width: 250px;
-  height: 50px;
+  width: 60%;
+  height: 60px;
   background-color: #eda3a3;
   border-radius: 5px;
   border: 0;
   box-shadow: 1px 1px 10px rgb(0, 0, 0, 0.1);
   transition: 0.3s;
   display: flex;
+  flex-direction: column;
   justify-content: left;
   align-items: center;
   gap: 5px;
   padding: 15px;
   font-size: 15px;
   font-weight: 410;
+}
+.sideBar:hover button {
+  width: 100%;
+  flex-direction: row;
 }
 .sideBar button:hover {
   cursor: pointer;

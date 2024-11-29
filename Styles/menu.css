@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Ubuntu";
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 20px;
+  margin-top: 50px;
+  gap: 80px;
+}
+h1 {
+  font-size: 30px;
+}
+h2 {
+  font-size: 20px;
+  font-weight: 400;
+}
+.labelSection {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.gridSection {
+  width: 100%;
+  gap: 60px;
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.grid {
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  width: 400px;
+  background-color: #eda3a3;
+  align-items: center;
+  padding: 20px;
+  gap: 30px;
+  border-radius: 10px;
+}
+.itemImage {
+  background-color: #e7c8c8;
+  border-radius: 10px;
+  height: 200px;
+  width: 350px;
+}
+nav {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+nav button {
+  background-color: #eda3a3;
+  border-radius: 5px;
+  width: 150px;
+  border: 0px;
+  height: 50px;
+}
+nav button:hover {
+  cursor: pointer;
+  background-color: #e7c8c8;
+}

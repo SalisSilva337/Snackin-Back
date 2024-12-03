@@ -1,11 +1,26 @@
 let modalSection = document.querySelector(".modalSection");
-let modalContent = document.querySelector(".modalContent");
+let modalItens = document.querySelector("#modalItens");
+let modalDados = document.querySelector("#modalDados");
+let modalLocal = document.querySelector("#modalLocal");
 let closeButton = document.querySelector(".closeButton");
 let createOrder = document.querySelector(".createOrder");
 let paymentOptions = ["PIX", "Débito", "Crédito", "Dinheiro"];
 
 createOrder.addEventListener("click", () => {
   modalSection.style.display = "flex";
+  modalLocal.style.display = "block";
+  if (modalLocal.style.display == "block") {
+    modalDados.style.display = "none";
+    modalItens.style.display = "none";
+  }
+  if (modalDados.style.display == "block") {
+    modalLocal.style.display = "none";
+    modalItens.style.display = "none";
+  }
+  if (modalItens.style.display == "block") {
+    modalDados.style.display = "none";
+    modalLocal.style.display = "none";
+  }
   // modalContent.innerHTML = "";
 
   // let labelDiv = document.createElement("div");

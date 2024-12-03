@@ -43,11 +43,57 @@
       </section>
 
       <section class="modalSection">
-        <div class="modalContent">
+        <!-- modal de seleção de "local onde comer" -->
+        <div class="modalContent" id="modalLocal">
           <div class="labelDiv">
-            <h3>Criar novo Pedido</h3>
+            <div class="labelNavDiv">
+              <h3>Criar novo Pedido</h3>
+              <nav>
+                <span class="spanModalLocation" id="spanLocal">Local</span>
+                <span class="spanModalLocation" id="spanDados">Dados</span>
+                <span class="spanModalLocation" id="spanPedido">Pedido</span>
+              </nav>
+            </div>
             <button class="closeButton">X</button>
           </div>
+
+          <div class="mainItemDiv">
+            <button value="Delivery" class="buttonLocal">
+              <img
+                class="localIcons"
+                src="../../Imgs/icons/mopedIcon.svg"
+                alt=""
+              />Delivery
+            </button>
+            <button class="buttonLocal" value="Retirada/No Local">
+              <img
+                class="localIcons"
+                src="../../Imgs/icons/bagIcon.svg"
+                alt=""
+              />
+              Retirada/Comer no Local
+            </button>
+          </div>
+          <div class="bottomModalDiv">
+            <button>Cancelar</button>
+            <button>Próximo</button>
+          </div>
+        </div>
+        <!-- modal de dados do cliente -->
+        <div class="modalContent" id="modalDados">
+          <div class="labelDiv">
+            <div class="labelNavDiv">
+              <h3>Criar novo Pedido</h3>
+              <nav>
+                <span class="spanModalLocation" id="spanLocal">Local</span>
+                <span class="spanModalLocation" id="spanDados">Dados</span>
+                <span class="spanModalLocation" id="spanPedido">Pedido</span>
+              </nav>
+            </div>
+
+            <button class="closeButton">X</button>
+          </div>
+
           <div class="mainItemDiv">
             <div class="inputsDiv">
               <div class="eachInput">
@@ -67,12 +113,69 @@
                 <label>Telefone</label>
                 <input type="text" />
               </div>
-              <input class="inputDescription" placeholder="Descrição" />
+            </div>
+            <div class="eachInput">
+              <label>CEP</label>
+              <input type="text" />
+
+              <input class="inputsAddress" placeholder="Bairro" />
+              <input class="inputsAddress" placeholder="Nome da Rua" />
+              <input class="inputsAddress" placeholder="Nº" />
             </div>
           </div>
           <div class="bottomModalDiv">
             <button>Cancelar</button>
-            <button>Criar</button>
+            <button>Próximo</button>
+          </div>
+        </div>
+
+        <!-- modal de seleção de Itens -->
+        <div class="modalContent" id="modalItens">
+          <div class="labelDiv">
+            <div class="labelNavDiv">
+              <h3>Criar novo Pedido</h3>
+              <nav>
+                <span class="spanModalLocation" id="spanLocal">Local</span>
+                <span class="spanModalLocation" id="spanDados">Dados</span>
+                <span class="spanModalLocation" id="spanPedido">Pedido</span>
+              </nav>
+            </div>
+
+            <button class="closeButton">X</button>
+          </div>
+
+          <div class="mainItemDiv">
+            <div class="inputsDiv">
+              <div class="eachInput">
+                <label>Nome do Cliente</label>
+                <input type="text" />
+              </div>
+              <div class="eachInput">
+                <label>Método de Pagamento</label>
+                <select>
+                  <option value="Lanche">PIX</option>
+                  <option value="Acompanhamento">Débito</option>
+                  <option value="Bebida">Crédito</option>
+                  <option value="Combo">Dinheiro</option>
+                </select>
+              </div>
+              <div class="eachInput">
+                <label>Telefone</label>
+                <input type="text" />
+              </div>
+            </div>
+            <div class="eachInput">
+              <label>CEP</label>
+              <input type="text" />
+
+              <input class="inputsAddress" placeholder="Bairro" />
+              <input class="inputsAddress" placeholder="Nome da Rua" />
+              <input class="inputsAddress" placeholder="Nº" />
+            </div>
+          </div>
+          <div class="bottomModalDiv">
+            <button>Cancelar</button>
+            <button>Próximo</button>
           </div>
         </div>
       </section>

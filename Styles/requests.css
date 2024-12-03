@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
 * {
   padding: 0;
   margin: 0;
@@ -84,7 +86,7 @@ nav button:hover {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 
 .labelDiv button {
@@ -97,16 +99,51 @@ nav button:hover {
   opacity: 0.8;
   cursor: pointer;
 }
+.labelNavDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.labelNavDiv nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+#spanPedido {
+  color: #a0a0a0;
+  border: 0px;
+}
+.spanModalLocation {
+  color: #000000;
+  font-family: "Noto Sans";
+  font-style: italic;
+  border-bottom: 1px solid;
+}
+.localIcons {
+  height: 100px;
+}
+.buttonLocal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  font-weight: bold;
+  height: 260px;
+  width: 300px;
+  background-color: #eda3a3;
+  border: 0;
+}
 .mainItemDiv input {
   padding: 5px;
-  width: 100px;
+  width: 200px;
   height: 40px;
   background-color: #eda3a3;
   border: 0;
   box-shadow: 1px 1px 10px rgb(0, 0, 0, 0.1);
 }
 .mainItemDiv select {
-  width: 200px;
+  width: 210px;
   height: 50px;
   font-size: medium;
   background-color: #eda3a3;
@@ -124,11 +161,14 @@ nav button:hover {
   justify-content: center;
   gap: 50px;
 }
-.mainItemDiv .inputDescription {
-  width: 430px;
+.mainItemDiv .inputsAddress {
+  width: 150px;
   background-color: #e1b6b6;
 }
-
+.mainItemDiv .inputsAddress::placeholder {
+  font-family: "Noto Sans";
+  font-style: italic;
+}
 .inputsDiv {
   display: flex;
   gap: 10px;
@@ -145,7 +185,7 @@ nav button:hover {
 .bottomModalDiv {
   display: flex;
   gap: 10px;
-  margin-top: 230px;
+  margin-top: 120px;
   justify-content: space-around;
 }
 .bottomModalDiv button {

@@ -22,8 +22,15 @@ h2 {
 }
 .labelSection {
   display: flex;
+  flex-direction: row;
+}
+.labelSection div {
+  display: flex;
   flex-direction: column;
   gap: 10px;
+}
+.labelSection nav {
+  margin-left: auto;
 }
 .gridSection {
   width: 100%;
@@ -36,8 +43,8 @@ h2 {
 .grid {
   display: flex;
   flex-direction: column;
-  height: 400px;
-  width: 400px;
+  height: 300px;
+  width: 300px;
   background-color: #eda3a3;
   align-items: center;
   padding: 20px;
@@ -47,8 +54,8 @@ h2 {
 .itemImage {
   background-color: #e7c8c8;
   border-radius: 10px;
-  height: 200px;
-  width: 350px;
+  height: 150px;
+  width: 250px;
 }
 nav {
   display: flex;
@@ -79,10 +86,10 @@ nav button:hover {
   align-items: center;
 }
 .modalContent {
-  background-color: #e7c8c8;
+  background-color: #e0dede;
   height: 500px;
   width: 650px;
-  padding: 20px;
+  padding: 25px;
   box-shadow: 1px 1px 10px rgb(0, 0, 0, 0.2);
 }
 .labelDiv {

@@ -5,9 +5,14 @@
   margin: 0;
   font-family: "Ubuntu";
 }
+body {
+  overflow: hidden;
+}
 .logo {
-  height: 200px;
-  width: 200px;
+  display: flex;
+  height: 100px;
+  width: 100px;
+  transition: 0.3;
 }
 .mainSection {
   display: flex;
@@ -32,10 +37,19 @@
   gap: 5px;
   align-items: center;
 }
+
 .sideBar:hover {
   width: 350px;
 }
-.sideBar button {
+.sideBar:hover button {
+  width: 100%;
+  flex-direction: row;
+}
+.sideBar:hover .logo {
+  height: 200px;
+  width: 200px;
+}
+.navBarButtons {
   width: 60%;
   height: 60px;
   background-color: #eda3a3;
@@ -52,11 +66,12 @@
   font-size: 15px;
   font-weight: 410;
 }
-.sideBar:hover button {
-  width: 100%;
-  flex-direction: row;
+
+.navBarButtons:hover {
+  cursor: pointer;
+  background-color: #e7c8c8;
 }
-.sideBar button:hover {
+.expandedButtons:hover {
   cursor: pointer;
   background-color: #e7c8c8;
 }

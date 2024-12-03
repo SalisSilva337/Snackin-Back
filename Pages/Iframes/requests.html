@@ -5,12 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="../../Styles/requests.css" />
+    <script src="../../Scripts/requests.js" defer></script>
   </head>
   <body>
     <main class="main">
       <section class="labelSection">
-        <h1>Pedidos</h1>
-        <h2>Lista de Pedidos</h2>
+        <div>
+          <h1>Pedidos</h1>
+          <h2>Lista de Pedidos</h2>
+        </div>
+        <nav>
+          <button class="createOrder">Criar novo Pedido</button>
+        </nav>
       </section>
       <section class="gridSection">
         <div class="grid">
@@ -33,6 +39,41 @@
           <h3>Método de Pagamento: <span>Débito</span></h3>
           <h3>Subtotal: <span>R$210.00</span></h3>
           <h3>Data: <span>10/12/2024</span></h3>
+        </div>
+      </section>
+
+      <section class="modalSection">
+        <div class="modalContent">
+          <div class="labelDiv">
+            <h3>Criar novo Pedido</h3>
+            <button class="closeButton">X</button>
+          </div>
+          <div class="mainItemDiv">
+            <div class="inputsDiv">
+              <div class="eachInput">
+                <label>Nome do Cliente</label>
+                <input type="text" />
+              </div>
+              <div class="eachInput">
+                <label>Método de Pagamento</label>
+                <select>
+                  <option value="Lanche">PIX</option>
+                  <option value="Acompanhamento">Débito</option>
+                  <option value="Bebida">Crédito</option>
+                  <option value="Combo">Dinheiro</option>
+                </select>
+              </div>
+              <div class="eachInput">
+                <label>Telefone</label>
+                <input type="text" />
+              </div>
+              <input class="inputDescription" placeholder="Descrição" />
+            </div>
+          </div>
+          <div class="bottomModalDiv">
+            <button>Cancelar</button>
+            <button>Criar</button>
+          </div>
         </div>
       </section>
     </main>

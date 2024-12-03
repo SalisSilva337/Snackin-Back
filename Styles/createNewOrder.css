@@ -62,3 +62,10 @@ nav button:hover {
   flex-direction: column;
   gap: 15px;
 }
+.eachInput {
+  display: flex;
+  flex-direction: column;
+}
+.eachInput input {
+  width: 150px;
+}

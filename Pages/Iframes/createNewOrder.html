@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../Styles/createNewOrder.css" />
+  </head>
+  <body>
+    <main class="main">
+      <section class="labelSection">
+        <div>
+          <h1>Pedidos</h1>
+          <h2>Criando Novo Pedido</h2>
+        </div>
+      </section>
+      <section class="gridSection">
+        <div class="grid">
+          <div>
+            <h2>Seleção do Local</h2>
+          </div>
+          <div>
+            <button>Delivery</button>
+            <button>Retirada/Comer no Local</button>
+          </div>
+        </div>
+        <div class="grid">
+          <div>
+            <h2>Dados do Cliente</h2>
+          </div>
+
+          <section class="dataInputs">
+            <div class="eachInput">
+              <label for="">Nome do Cliente</label>
+              <input type="text" />
+            </div>
+            <div class="eachInput">
+              <label for="">Telefone</label>
+              <input type="text" />
+            </div>
+            <div class="eachInput">
+              <label for="">Método de Pagamento</label>
+              <select name="" class="selectPayment">
+                <option value="pix">PIX</option>
+                <option value="credito">Crédito</option>
+                <option value="debito">Débito</option>
+                <option value="dinheiro">Dinheiro</option>
+              </select>
+            </div>
+          </section>
+
+          <section class="addressInputs">
+            <div class="eachInput">
+              <label for="">CEP</label>
+              <input type="text" />
+              <input type="text" placeholder="Bairro" />
+              <input type="text" placeholder="Rua" />
+              <input type="text" placeholder="Nº" />
+            </div>
+          </section>
+        </div>
+        <div class="grid">
+          <div>
+            <h2>Seleção dos Itens</h2>
+          </div>
+          <div>
+            <button>Delivery</button>
+            <button>Retirada/Comer no Local</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

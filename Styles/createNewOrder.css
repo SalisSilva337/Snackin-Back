@@ -51,21 +51,220 @@ nav button:hover {
 }
 .gridSection {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
 }
 
 .grid {
-  background-color: #e7c8c8;
+  background-color: #f6f6f6;
+  width: 100%;
+  height: 550px;
   padding: 30px;
   display: flex;
+  align-items: center;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
+  border-radius: 5px;
+  border: 0.1px solid #f6f6f6;
+  transition: 0.3s;
 }
+
+.grid:hover {
+  border: 1dvh solid #eda3a3;
+}
+
+.buttonsLocal {
+  gap: 10px;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.buttonsLocal button {
+  box-shadow: 1px 1px 10px rgb(0, 0, 0, 0.1);
+  background-color: #eda3a3;
+  border: 0.5px solid #eda3a3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  width: 300px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.buttonsLocal img {
+  height: 90px;
+}
+
+.buttonsLocal button:hover {
+  width: 400px;
+  border: 1dvh solid #df7272;
+  cursor: pointer;
+}
+
+.buttonNext {
+  background-color: #eda3a3;
+  border: 0;
+  width: 300px;
+  padding: 10px;
+  border-radius: 5px;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+.buttonNext:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.gridSection h2 {
+  font-size: 30px;
+}
+.eachInput label {
+  font-weight: 400;
+}
+.eachInput input {
+  background-color: #eda3a3;
+  width: 200px;
+  height: 30px;
+  padding: 5px;
+  border: 0;
+  border-radius: 5px;
+}
+.eachInput select {
+  background-color: #eda3a3;
+  width: 160px;
+  height: 30px;
+  padding: 5px;
+  border: 0;
+  border-radius: 5px;
+}
+
 .eachInput {
   display: flex;
   flex-direction: column;
+  gap: 10px;
 }
+
 .eachInput input {
   width: 150px;
+}
+.allInputs {
+  display: flex;
+  flex-direction: row;
+  gap: 200px;
+  margin: auto;
+}
+.labelInputs {
+  margin-bottom: 20px;
+}
+
+.eachInput .inputsPlace {
+  background-color: #e7c8c8;
+  width: 150px;
+}
+.dataInputs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.fullTable {
+  box-shadow: 1px 1px 10px rgb(0, 0, 0, 0.1);
+  border-radius: 10px;
+  width: 800px;
+  height: 600px;
+  padding: 15px;
+  display: flex;
+  flex-direction: row;
+  background-color: #eda3a3;
+}
+
+.ItemsTable {
+  background-color: #e7c8c8;
+  box-shadow: 1px 1px 10px rgb(0, 0, 0, 0.2);
+  padding: 10px;
+  width: 600px;
+  height: 95%;
+  border-radius: 10px;
+}
+
+.filterArea {
+  width: 300px;
+  float: right;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.filterArea select {
+  background-color: #e7c8c8;
+  width: 150px;
+  height: 30px;
+  border-radius: 5px;
+}
+.filterArea h3 {
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.tableGrid {
+  width: 100%;
+  border-radius: 5px;
+  margin: auto;
+  height: 80px;
+  background-color: #df7272;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.tableGrid h2 {
+  font-size: 20px;
+  font-weight: 500;
+}
+.tableGrid h3 {
+  font-weight: 400;
+  font-style: italic;
+  font-size: 15px;
+}
+.itemsCountDiv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+.itemImage {
+  background-color: #e7c8c8;
+  border-radius: 5px;
+  height: 60px;
+  width: 60px;
+}
+.itemCount {
+  height: 40px;
+  width: 80px;
+  padding: 5px;
+  background-color: #e7c8c8;
+  border: 0;
+  border-radius: 5px;
+}
+.itemsCountButtons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  background-color: #e7c8c8;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  border: 0;
+  transition: 0.3s;
+}
+.itemsCountButtons:hover {
+  opacity: 0.7;
+  cursor: pointer;
 }

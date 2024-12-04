@@ -19,54 +19,100 @@
           <div>
             <h2>Seleção do Local</h2>
           </div>
-          <div>
-            <button>Delivery</button>
-            <button>Retirada/Comer no Local</button>
+          <div class="buttonsLocal">
+            <button value="delivery">
+              <img src="../../Imgs/icons/mopedIcon.svg" alt="" />Delivery
+            </button>
+            <button value="retirada/comerNoLocal">
+              <img src="../../Imgs/icons/bagIcon.svg" alt="" />Retirada/Comer no
+              Local
+            </button>
           </div>
+          <button class="buttonNext">Próximo</button>
         </div>
         <div class="grid">
           <div>
             <h2>Dados do Cliente</h2>
           </div>
+          <section class="allInputs">
+            <section class="dataInputs">
+              <div class="labelInputs">
+                <h3>Dados</h3>
+              </div>
 
-          <section class="dataInputs">
-            <div class="eachInput">
-              <label for="">Nome do Cliente</label>
-              <input type="text" />
-            </div>
-            <div class="eachInput">
-              <label for="">Telefone</label>
-              <input type="text" />
-            </div>
-            <div class="eachInput">
-              <label for="">Método de Pagamento</label>
-              <select name="" class="selectPayment">
-                <option value="pix">PIX</option>
-                <option value="credito">Crédito</option>
-                <option value="debito">Débito</option>
-                <option value="dinheiro">Dinheiro</option>
-              </select>
-            </div>
+              <div class="eachInput">
+                <label for="">Nome do Cliente</label>
+                <input type="text" />
+                <label for="">Telefone</label>
+                <input type="text" />
+              </div>
+              <div class="eachInput">
+                <label for="">Método de Pagamento</label>
+                <select name="" class="selectPayment">
+                  <option value="pix">PIX</option>
+                  <option value="credito">Crédito</option>
+                  <option value="debito">Débito</option>
+                  <option value="dinheiro">Dinheiro</option>
+                </select>
+              </div>
+            </section>
+
+            <section class="addressInputs">
+              <div class="labelInputs">
+                <h3>Endereço</h3>
+              </div>
+
+              <div class="eachInput">
+                <label for="">CEP</label>
+                <input type="text" />
+                <input type="text" class="inputsPlace" placeholder="Bairro" />
+                <input type="text" class="inputsPlace" placeholder="Rua" />
+                <input type="text" class="inputsPlace" placeholder="Nº" />
+              </div>
+            </section>
           </section>
 
-          <section class="addressInputs">
-            <div class="eachInput">
-              <label for="">CEP</label>
-              <input type="text" />
-              <input type="text" placeholder="Bairro" />
-              <input type="text" placeholder="Rua" />
-              <input type="text" placeholder="Nº" />
-            </div>
-          </section>
+          <button class="buttonNext">Próximo</button>
         </div>
         <div class="grid">
           <div>
             <h2>Seleção dos Itens</h2>
           </div>
-          <div>
-            <button>Delivery</button>
-            <button>Retirada/Comer no Local</button>
+          <div class="fullTable">
+            <div class="ItemsTable">
+              <div class="tableGrid">
+                <div class="itemImage"><img src="" alt="" /></div>
+                <div>
+                  <h2>Nome do Produto</h2>
+                  <h3>R$10.00</h3>
+                </div>
+                <div class="itemsCountDiv">
+                  <button class="itemsCountButtons">-</button>
+                  <input type="number" class="itemCount" />
+                  <button class="itemsCountButtons">+</button>
+                </div>
+              </div>
+            </div>
+            <div class="filterArea">
+              <h1>Filtros</h1>
+              <h3>Categoria</h3>
+              <select>
+                <option value="Lanche">Lanche</option>
+                <option value="Acompanhamento">Acompanhamento</option>
+                <option value="Bebida">Bebida</option>
+                <option value="Combo">Combo</option>
+              </select>
+
+              <h3>Valor</h3>
+              <select>
+                <option value="Lanche">Até R$10.00</option>
+                <option value="Acompanhamento">Até R$30.00</option>
+                <option value="Bebida">Até R$50.00</option>
+                <option value="Combo">Até R$100.00</option>
+              </select>
+            </div>
           </div>
+          <button class="buttonNext">Concluir</button>
         </div>
       </section>
     </main>

@@ -30,22 +30,80 @@ span {
   font-weight: 400;
 }
 .topPage {
-  background-color: #f8f8f8;
-  height: 250px;
+  background-color: #eda3a3;
+  border-radius: 5px;
+  height: 350px;
 }
 .midPage {
+  margin-bottom: 10px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
 }
-
+.grid img {
+  width: 250px;
+  height: 200px;
+}
+.grid h3 {
+  font-style: italic;
+  font-family: "Noto Sans";
+  font-weight: bold;
+}
 .grid {
+  font-size: 25px;
   background-color: #eda3a3;
-  width: 400px;
+  width: 350px;
   height: 350px;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: 0.3s;
 }
-
+.grid:hover {
+  width: 370px;
+  height: 370px;
+}
 .bottomPage {
   background-color: #f8f8f8;
   height: 250px;
+}
+
+.popularItems {
+  margin: auto;
+}
+.popularItems h1 {
+  font-stretch: condensed;
+  font-style: italic;
+  font-size: 40px;
+  font-weight: 450;
+}
+.interactionsButton {
+  width: 50%;
+  background-color: #eda3a3;
+  border-radius: 5px;
+  border: 0;
+  font-size: 15px;
+  height: 50px;
+  transition: 0.3s;
+}
+.interactionsButton:hover {
+  width: 60%;
+  opacity: 0.7;
+  cursor: pointer;
+}
+.topPageSection {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.buttonsTopPage {
+  display: flex;
+
+  gap: 10px;
+  flex-direction: row;
 }

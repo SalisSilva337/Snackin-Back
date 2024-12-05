@@ -38,7 +38,7 @@ h2 {
   flex-wrap: wrap;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .grid {
   display: flex;
@@ -86,6 +86,7 @@ nav button:hover {
   align-items: center;
 }
 .modalContent {
+  border-radius: 10px;
   background-color: #e0dede;
   height: 500px;
   width: 650px;
@@ -110,6 +111,7 @@ nav button:hover {
   cursor: pointer;
 }
 .mainItemDiv input {
+  border-radius: 5px;
   padding: 5px;
   width: 100px;
   height: 40px;
@@ -118,6 +120,7 @@ nav button:hover {
   box-shadow: 1px 1px 10px rgb(0, 0, 0, 0.1);
 }
 .mainItemDiv select {
+  border-radius: 5px;
   width: 200px;
   height: 50px;
   font-size: medium;
@@ -126,7 +129,7 @@ nav button:hover {
   box-shadow: 1px 1px 10px rgb(0, 0, 0, 0.1);
 }
 .imgItemDivModal {
-  width: 150px;
+  width: 200px;
   height: 150px;
   background-color: #eda3a3;
 }
@@ -134,7 +137,7 @@ nav button:hover {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 50px;
+  gap: 40px;
 }
 .mainItemDiv .inputDescription {
   width: 430px;

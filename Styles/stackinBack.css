@@ -45,7 +45,7 @@ body {
   border-radius: 5px;
   border: 0;
   box-shadow: 1px 1px 10px rgb(0, 0, 0, 0.1);
-  transition: 0.3s;
+  transition: 0.3s all;
   display: flex;
   flex-direction: row;
   justify-content: left;
@@ -63,10 +63,7 @@ body {
   cursor: pointer;
   background-color: #e7c8c8;
 }
-.expandedButtons:hover {
-  cursor: pointer;
-  background-color: #e7c8c8;
-}
+
 .sideBar h1 {
   margin: 30px;
   font-weight: 400;

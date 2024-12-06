@@ -19,48 +19,7 @@
           <button class="deleteItem">Deletar Item</button>
         </nav>
       </section>
-      <section class="gridSection">
-        <div class="grid">
-          <h2>Nome do Produto</h2>
-          <div class="itemImage">
-            <img src="../../Imgs/images/items/bigSB" alt="" />
-          </div>
-          <h3>R$10.00</h3>
-          <button class="editButton">
-            <img src="../../Imgs/icons/editIcon.svg" alt="" />
-          </button>
-        </div>
-        <div class="grid">
-          <h2>Nome do Produto</h2>
-          <div class="itemImage">
-            <img src="../../Imgs/images/items/bigSB" alt="" />
-          </div>
-          <h3>R$10.00</h3>
-          <button class="editButton">
-            <img src="../../Imgs/icons/editIcon.svg" alt="" />
-          </button>
-        </div>
-        <div class="grid">
-          <h2>Nome do Produto</h2>
-          <div class="itemImage">
-            <img src="../../Imgs/images/items/bigSB" alt="" />
-          </div>
-          <h3>R$10.00</h3>
-          <button class="editButton">
-            <img src="../../Imgs/icons/editIcon.svg" alt="" />
-          </button>
-        </div>
-        <div class="grid">
-          <h2>Nome do Produto</h2>
-          <div class="itemImage">
-            <img src="../../Imgs/images/items/bigSB" alt="" />
-          </div>
-          <h3>R$10.00</h3>
-          <button class="editButton">
-            <img src="../../Imgs/icons/editIcon.svg" alt="" />
-          </button>
-        </div>
-      </section>
+      <section class="gridSection"></section>
 
       <section class="modalSection">
         <div class="modalContent">
@@ -87,11 +46,11 @@
             <div class="inputsDiv">
               <div class="eachInput">
                 <label>Nome</label>
-                <input type="text" />
+                <input type="text" id="inputName" />
               </div>
               <div class="eachInput">
                 <label>Categoria</label>
-                <select>
+                <select id="selectCategory">
                   <option value="Lanche">Lanche</option>
                   <option value="Acompanhamento">Acompanhamento</option>
                   <option value="Bebida">Bebida</option>
@@ -100,9 +59,13 @@
               </div>
               <div class="eachInput">
                 <label>Preço</label>
-                <input type="text" />
+                <input type="number" id="inputPrice" />
               </div>
-              <input class="inputDescription" placeholder="Descrição" />
+              <input
+                class="inputDescription"
+                placeholder="Descrição"
+                id="inputDesc"
+              />
             </div>
           </div>
           <div class="bottomModalDiv">

@@ -17,6 +17,3 @@ menuButton.addEventListener("click", () => {
 ordersButton.addEventListener("click", () => {
   iframe.src = "../Pages/Iframes/requests.html";
 });
-settingsButton.addEventListener("click", () => {
-  iframe.src = "../Pages/Iframes/settings.html";
-});

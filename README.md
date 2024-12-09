@@ -1,11 +1,11 @@
 Snackin Back
 
 ## INTEGRANTES
-> Salis Silva
-> Leonardo Messias
-> Cayo Rafael
-> Dalton Alex
-> Albertho Pedro
+- Salis Silva
+- Leonardo Messias
+- Cayo Rafael
+- Dalton Alex
+- Albertho Pedro
 
 ## OBJETIVO
 Facilitar a gestão de Food Trucks, oferecendo uma plataforma simples e eficiente para o controle de vendas, cardápio, pedidos e clientes. Ajudando a otimizar operações e melhorar a experiência do cliente.

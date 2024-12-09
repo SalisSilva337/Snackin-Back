@@ -41,4 +41,14 @@ public class ProdutoService {
    
     }
 
+    public void atualizarProduto(Long id, Produto update) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'atualizarProduto'");
+    }
+
+    public void deleteProdutoById(Long id){
+        if(id == null) throw new RuntimeException("id não válido");
+        produtoRepository.deleteById(id);
+    }
+
 }

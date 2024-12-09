@@ -12,6 +12,5 @@ Facilitar a gestão de Food Trucks, oferecendo uma plataforma simples e eficient
 
 ## INSTRUÇÕES DE UTILIZAÇÃO
 
-| DOCUMENTAÇÃO |
-| ------ | ------ |
-| Figma | https://www.figma.com/design/wMjJRfzRLtDNESzJPqU6oh/Projeto-Food-Truck?node-id=55-2&node-type=canvas&t=rwFLJp51MdB3ENBw-0 |
+## DOCUMENTAÇÃO
+[Figma](https://www.figma.com/design/wMjJRfzRLtDNESzJPqU6oh/Projeto-Food-Truck?node-id=55-2&node-type=canvas&t=rwFLJp51MdB3ENBw-0)

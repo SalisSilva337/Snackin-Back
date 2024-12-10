@@ -46,7 +46,7 @@ let inputsPlace = document.querySelectorAll(".inputsPlace");
 cep.addEventListener("change", () => {
   cepvalue = cep.value;
   if (cepvalue !== "") {
-    let url = "https://brasilapi.com.br/api/cep/v1/" + cepvalue;
+    let url = "https://opencep.com/v1/" + cepvalue;
 
     let request = new XMLHttpRequest();
     request.open("GET", url);
@@ -55,8 +55,8 @@ cep.addEventListener("change", () => {
     request.onload = function () {
       if (request.status === 200) {
         let endereco = JSON.parse(request.response);
-        document.querySelector("#ruaTxt").value = endereco.street;
-        document.querySelector("#bairroTxt").value = endereco.neighborhood;
+        document.querySelector("#ruaTxt").value = endereco.logradouro;
+        document.querySelector("#bairroTxt").value = endereco.bairro;
         inputsPlace.forEach((input) => {
           input.classList.remove("emptyInput");
           input.classList.add("nonEmptyInput");
@@ -83,7 +83,7 @@ let count = 1;
 itemCount.value = count;
 
 subButton.addEventListener("click", () => {
-  if (count <= 0) {
+  if (count <= 1) {
     count = 1;
   } else {
     count--;
@@ -94,3 +94,97 @@ sumButton.addEventListener("click", () => {
   count++;
   itemCount.value = count;
 });
+
+//Block Divs func
+let gridLocal = document.querySelector("#gridLocal");
+let gridData = document.querySelector("#gridData");
+let gridMenu = document.querySelector("#gridMenu");
+
+let backToLocal = document.querySelector("#backToLocal");
+let goToMenu = document.querySelector("#goToMenu");
+let backToData = document.querySelector("#backToData");
+let finishOrder = document.querySelector("#finishOrder");
+let buttonGetOnPlace = document.querySelector("#buttonGetOnPlace");
+let buttonDelivery = document.querySelector("#buttonDelivery");
+
+gridData.style.pointerEvents = "none";
+gridData.style.filter = "blur(2px)";
+gridMenu.style.pointerEvents = "none";
+gridMenu.style.filter = "blur(2px)";
+gridLocal.style.border = "1dvh solid #eda3a3";
+
+//Go To Data Grid
+buttonDelivery.addEventListener("click", () => {
+  gridLocal.style.pointerEvents = "none";
+  gridLocal.style.filter = "blur(2px)";
+  gridLocal.style.border = "0px";
+
+  gridData.style.pointerEvents = "";
+  gridData.style.filter = "";
+  gridData.style.border = "1dvh solid #eda3a3";
+
+  gridMenu.style.pointerEvents = "none";
+  gridMenu.style.filter = "blur(2px)";
+  gridMenu.style.border = "0px";
+});
+
+buttonGetOnPlace.addEventListener("click", () => {
+  gridLocal.style.pointerEvents = "none";
+  gridLocal.style.filter = "blur(2px)";
+  gridLocal.style.border = "0px";
+
+  gridData.style.pointerEvents = "";
+  gridData.style.filter = "";
+  gridData.style.border = "1dvh solid #eda3a3";
+
+  gridMenu.style.pointerEvents = "none";
+  gridMenu.style.filter = "blur(2px)";
+  gridMenu.style.border = "0px";
+});
+
+//Return to Local Grid
+backToLocal.addEventListener("click", () => {
+  gridLocal.style.pointerEvents = "";
+  gridLocal.style.filter = "";
+  gridLocal.style.border = "1dvh solid #eda3a3";
+
+  gridData.style.pointerEvents = "none";
+  gridData.style.filter = "blur(2px)";
+  gridData.style.border = "0px";
+
+  gridMenu.style.pointerEvents = "none";
+  gridMenu.style.filter = "blur(2px)";
+  gridMenu.style.border = "0px";
+});
+
+//Go To Menu Grid
+goToMenu.addEventListener("click", () => {
+  gridLocal.style.pointerEvents = "none";
+  gridLocal.style.filter = "blur(2px)";
+  gridLocal.style.border = "0px";
+
+  gridData.style.pointerEvents = "none";
+  gridData.style.filter = "blur(2px)";
+  gridData.style.border = "0px";
+
+  gridMenu.style.pointerEvents = "";
+  gridMenu.style.filter = "";
+  gridMenu.style.border = "1dvh solid #eda3a3";
+});
+
+//Return to Data Grid
+backToData.addEventListener("click", () => {
+  gridLocal.style.pointerEvents = "none";
+  gridLocal.style.filter = "blur(2px)";
+  gridMenu.style.border = "0px";
+
+  gridData.style.pointerEvents = "";
+  gridData.style.filter = "";
+  gridData.style.border = "1dvh solid #eda3a3";
+
+  gridMenu.style.pointerEvents = "none";
+  gridMenu.style.filter = "blur(2px)";
+  gridMenu.style.border = "0px";
+});
+
+finishOrder.addEventListener("click", () => {});

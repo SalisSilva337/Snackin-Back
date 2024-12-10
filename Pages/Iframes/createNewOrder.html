@@ -16,27 +16,34 @@
         </div>
       </section>
       <section class="gridSection">
-        <div class="grid">
+        <div class="grid" id="gridLocal">
           <div>
             <h2>Seleção do Local</h2>
           </div>
           <div class="buttonsLocalDiv">
-            <button class="buttonsLocal" value="delivery" id="buttonDelivery">
-              <img src="../../Imgs/icons/mopedIcon.svg" alt="" />Delivery
-            </button>
-            <button
-              class="buttonsLocal"
-              value="retirada/comerNoLocal"
-              id="buttonGetOnPlace"
+            <a class="aLocal" href="#gridData"
+              ><button
+                class="buttonsLocal"
+                value="delivery"
+                id="buttonDelivery"
+              >
+                <img src="../../Imgs/icons/mopedIcon.svg" alt="" />Delivery
+              </button></a
             >
-              <img src="../../Imgs/icons/bagIcon.svg" alt="" />Retirada/Comer no
-              Local
-            </button>
+            <a class="aLocal" href="#gridData"
+              ><button
+                class="buttonsLocal"
+                value="retirada/comerNoLocal"
+                id="buttonGetOnPlace"
+              >
+                <img src="../../Imgs/icons/bagIcon.svg" alt="" />Retirada/Comer
+                no Local
+              </button></a
+            >
           </div>
           <span id="spanSelectedButton"></span>
-          <!-- <button id="buttonSelectLocalNext" class="buttonNext">Próximo</button> -->
         </div>
-        <div class="grid">
+        <div class="grid" id="gridData">
           <div>
             <h2>Dados do Cliente</h2>
           </div>
@@ -90,11 +97,15 @@
           </section>
 
           <div class="bottomButtonsDiv">
-            <button class="buttonNext">Voltar</button>
-            <button class="buttonNext">Próximo</button>
+            <a href="#gridLocal"
+              ><button class="bottomButtons" id="backToLocal">Voltar</button></a
+            >
+            <a href="#gridMenu"
+              ><button class="bottomButtons" id="goToMenu">Próximo</button></a
+            >
           </div>
         </div>
-        <div class="grid">
+        <div class="grid" id="gridMenu">
           <div>
             <h2>Seleção dos Itens</h2>
           </div>
@@ -133,8 +144,14 @@
             </div>
           </div>
           <div class="bottomButtonsDiv">
-            <button class="buttonNext">Voltar</button>
-            <button class="buttonNext">Concluir</button>
+            <a href="#gridData"
+              ><button id="backToData" class="bottomButtons">Voltar</button></a
+            >
+            <a href="../../Pages/Iframes/requests.html"
+              ><button id="finishOrder" class="bottomButtons">
+                Concluir
+              </button></a
+            >
           </div>
         </div>
       </section>

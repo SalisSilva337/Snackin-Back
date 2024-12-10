@@ -103,7 +103,31 @@ span {
 }
 .buttonsTopPage {
   display: flex;
-
   gap: 10px;
   flex-direction: row;
+}
+.sliders {
+  border: 1px solid;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.sliders img {
+  width: 400px;
+}
+.burgerTitle {
+  border: 1px solid;
+  margin-top: 10px;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.burgerInfo {
+  width: 200px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  border: 1px solid;
 }

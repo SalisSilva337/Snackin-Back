@@ -75,14 +75,14 @@ nav button:hover {
   border: 1dvh solid #eda3a3;
 }
 
-.buttonsLocal {
+.buttonsLocalDiv {
   gap: 10px;
   display: flex;
   flex-direction: row;
   height: 100%;
 }
 
-.buttonsLocal button {
+.buttonsLocal {
   box-shadow: 1px 1px 10px rgb(0, 0, 0, 0.1);
   background-color: #eda3a3;
   border: 0.5px solid #eda3a3;
@@ -96,11 +96,11 @@ nav button:hover {
   transition: 0.3s;
 }
 
-.buttonsLocal img {
+.buttonsLocalDiv img {
   height: 90px;
 }
 
-.buttonsLocal button:hover {
+.buttonsLocal:hover {
   width: 400px;
   border: 1dvh solid #df7272;
   cursor: pointer;
@@ -127,7 +127,7 @@ nav button:hover {
 .eachInput label {
   font-weight: 400;
 }
-.eachInput input {
+input {
   background-color: #eda3a3;
   width: 200px;
   height: 30px;
@@ -135,12 +135,20 @@ nav button:hover {
   border: 0;
   border-radius: 5px;
 }
-.eachInput select {
+.emptyInput {
+  border: 2px solid #ce4747;
+  transition: 0.3s;
+}
+.nonEmptyInput {
+  border: 2px solid #4eee96;
+  transition: 0.3s;
+}
+.selectPayment {
   background-color: #eda3a3;
   width: 160px;
   height: 30px;
   padding: 5px;
-  border: 0;
+
   border-radius: 5px;
 }
 

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="../../Styles/createNewOrder.css" />
+    <script src="../../Scripts/createNewOrder.js" defer></script>
   </head>
   <body>
     <main class="main">
@@ -19,16 +20,21 @@
           <div>
             <h2>Seleção do Local</h2>
           </div>
-          <div class="buttonsLocal">
-            <button value="delivery">
+          <div class="buttonsLocalDiv">
+            <button class="buttonsLocal" value="delivery" id="buttonDelivery">
               <img src="../../Imgs/icons/mopedIcon.svg" alt="" />Delivery
             </button>
-            <button value="retirada/comerNoLocal">
+            <button
+              class="buttonsLocal"
+              value="retirada/comerNoLocal"
+              id="buttonGetOnPlace"
+            >
               <img src="../../Imgs/icons/bagIcon.svg" alt="" />Retirada/Comer no
               Local
             </button>
           </div>
-          <button class="buttonNext">Próximo</button>
+          <span id="spanSelectedButton"></span>
+          <!-- <button id="buttonSelectLocalNext" class="buttonNext">Próximo</button> -->
         </div>
         <div class="grid">
           <div>
@@ -42,13 +48,14 @@
 
               <div class="eachInput">
                 <label for="">Nome do Cliente</label>
-                <input type="text" />
+                <input type="text" class="inputsClientData" />
                 <label for="">Telefone</label>
-                <input type="text" />
+                <input type="text" class="inputsClientData" />
               </div>
               <div class="eachInput">
                 <label for="">Método de Pagamento</label>
                 <select name="" class="selectPayment">
+                  <option value="" hidden>--- Selecione ---</option>
                   <option value="pix">PIX</option>
                   <option value="credito">Crédito</option>
                   <option value="debito">Débito</option>
@@ -64,9 +71,19 @@
 
               <div class="eachInput">
                 <label for="">CEP</label>
-                <input type="text" />
-                <input type="text" class="inputsPlace" placeholder="Bairro" />
-                <input type="text" class="inputsPlace" placeholder="Rua" />
+                <input type="text" id="cepTxt" class="inputsClientData" />
+                <input
+                  type="text"
+                  class="inputsPlace"
+                  placeholder="Bairro"
+                  id="bairroTxt"
+                />
+                <input
+                  type="text"
+                  class="inputsPlace"
+                  placeholder="Rua"
+                  id="ruaTxt"
+                />
                 <input type="text" class="inputsPlace" placeholder="Nº" />
               </div>
             </section>

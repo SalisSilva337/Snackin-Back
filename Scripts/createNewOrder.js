@@ -72,3 +72,25 @@ cep.addEventListener("change", () => {
     };
   }
 });
+
+//ItemCount func
+let itemCount = document.querySelector(".itemCount");
+let subButton = document.querySelector("#subButton");
+let sumButton = document.querySelector("#sumButton");
+
+let count = 1;
+
+itemCount.value = count;
+
+subButton.addEventListener("click", () => {
+  if (count <= 0) {
+    count = 1;
+  } else {
+    count--;
+    itemCount.value = count;
+  }
+});
+sumButton.addEventListener("click", () => {
+  count++;
+  itemCount.value = count;
+});

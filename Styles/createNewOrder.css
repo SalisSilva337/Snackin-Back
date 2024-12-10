@@ -148,7 +148,6 @@ input {
   width: 160px;
   height: 30px;
   padding: 5px;
-
   border-radius: 5px;
 }
 
@@ -260,6 +259,14 @@ input {
   background-color: #e7c8c8;
   border: 0;
   border-radius: 5px;
+  display: flex;
+  justify-items: center;
+  box-shadow: 1px 1px 10px rgb(0, 0, 0, 0.1);
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 .itemsCountButtons {
   display: flex;
@@ -272,8 +279,13 @@ input {
   border-radius: 100%;
   border: 0;
   transition: 0.3s;
+  box-shadow: 1px 1px 10px rgb(0, 0, 0, 0.1);
 }
 .itemsCountButtons:hover {
   opacity: 0.7;
   cursor: pointer;
+}
+.bottomButtonsDiv {
+  display: flex;
+  gap: 20px;
 }

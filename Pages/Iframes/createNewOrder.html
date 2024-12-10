@@ -50,7 +50,7 @@
                 <label for="">Nome do Cliente</label>
                 <input type="text" class="inputsClientData" />
                 <label for="">Telefone</label>
-                <input type="text" class="inputsClientData" />
+                <input type="number" class="inputsClientData" />
               </div>
               <div class="eachInput">
                 <label for="">Método de Pagamento</label>
@@ -84,12 +84,15 @@
                   placeholder="Rua"
                   id="ruaTxt"
                 />
-                <input type="text" class="inputsPlace" placeholder="Nº" />
+                <input type="number" class="inputsPlace" placeholder="Nº" />
               </div>
             </section>
           </section>
 
-          <button class="buttonNext">Próximo</button>
+          <div class="bottomButtonsDiv">
+            <button class="buttonNext">Voltar</button>
+            <button class="buttonNext">Próximo</button>
+          </div>
         </div>
         <div class="grid">
           <div>
@@ -100,13 +103,13 @@
               <div class="tableGrid">
                 <div class="itemImage"><img src="" alt="" /></div>
                 <div>
-                  <h2>Nome do Produto</h2>
-                  <h3>R$10.00</h3>
+                  <h2 id="productName">Nome do Produto</h2>
+                  <h3 id="productPrice">R$10.00</h3>
                 </div>
                 <div class="itemsCountDiv">
-                  <button class="itemsCountButtons">-</button>
+                  <button class="itemsCountButtons" id="subButton">-</button>
                   <input type="number" class="itemCount" />
-                  <button class="itemsCountButtons">+</button>
+                  <button class="itemsCountButtons" id="sumButton">+</button>
                 </div>
               </div>
             </div>
@@ -129,7 +132,10 @@
               </select>
             </div>
           </div>
-          <button class="buttonNext">Concluir</button>
+          <div class="bottomButtonsDiv">
+            <button class="buttonNext">Voltar</button>
+            <button class="buttonNext">Concluir</button>
+          </div>
         </div>
       </section>
     </main>

@@ -84,12 +84,14 @@
                   class="inputsPlace"
                   placeholder="Bairro"
                   id="bairroTxt"
+                  disabled
                 />
                 <input
                   type="text"
                   class="inputsPlace"
                   placeholder="Rua"
                   id="ruaTxt"
+                  disabled
                 />
                 <input type="number" class="inputsPlace" placeholder="Nº" />
               </div>
@@ -111,8 +113,8 @@
           </div>
           <div class="fullTable">
             <div class="ItemsTable">
-              <div class="tableGrid">
-                <div class="itemImage"><img src="" alt="" /></div>
+              <!-- <div class="tableGrid">
+                <div class="itemImage"></div>
                 <div>
                   <h2 id="productName">Nome do Produto</h2>
                   <h3 id="productPrice">R$10.00</h3>
@@ -122,7 +124,10 @@
                   <input type="number" class="itemCount" />
                   <button class="itemsCountButtons" id="sumButton">+</button>
                 </div>
-              </div>
+                <button class="addToCart">
+                  <img src="../../Imgs/icons/shoppingCartIcon.svg" alt="" />
+                </button>
+              </div> -->
             </div>
             <div class="filterArea">
               <h1>Filtros</h1>
@@ -136,11 +141,18 @@
 
               <h3>Valor</h3>
               <select>
-                <option value="Lanche">Até R$10.00</option>
-                <option value="Acompanhamento">Até R$30.00</option>
-                <option value="Bebida">Até R$50.00</option>
-                <option value="Combo">Até R$100.00</option>
+                <option value="10">Até R$10.00</option>
+                <option value="30">Até R$30.00</option>
+                <option value="50">Até R$50.00</option>
+                <option value="100">Até R$100.00</option>
               </select>
+              <div>
+                <h1>Subtotal</h1>
+              </div>
+              <div class="subtotalItemsDiv"></div>
+              <div class="subtotalPricesDiv">
+                <h1>R$100.00</h1>
+              </div>
             </div>
           </div>
           <div class="bottomButtonsDiv">

@@ -29,11 +29,7 @@ h2 {
 span {
   font-weight: 400;
 }
-.topPage {
-  background-color: #eda3a3;
-  border-radius: 5px;
-  height: 350px;
-}
+
 .midPage {
   margin-bottom: 10px;
   display: flex;
@@ -106,28 +102,23 @@ span {
   gap: 10px;
   flex-direction: row;
 }
-.sliders {
-  border: 1px solid;
-  width: 100%;
+
+.topPage {
+  background-color: #eda3a3;
+  border-radius: 5px;
+  height: 350px;
+  padding: 5px;
   display: flex;
-  flex-wrap: wrap;
   flex-direction: row;
 }
-.sliders img {
-  width: 400px;
-}
-.burgerTitle {
-  border: 1px solid;
-  margin-top: 10px;
-  gap: 20px;
+
+.sliderTitle {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  gap: 10px;
 }
-.burgerInfo {
-  width: 200px;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  border: 1px solid;
+.sliderTitle h1 {
+  font-style: italic;
 }

@@ -1,6 +1,6 @@
-## SNACKIN BACK
+## SNACKIN´ BACK
 
-![screenshot](https://github.com/user-attachments/assets/12e1c404-c3f4-4cec-8690-c5f5f230f495)
+![screenshot](https://github.com/user-attachments/assets/9a492e36-0f9f-4d44-9cbe-26047e3f5bba)
 
 `SENAI AL` `TÉCNICO EM INFORMÁTICA PARA WEB`
 

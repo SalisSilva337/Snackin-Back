@@ -20,5 +20,5 @@ A modernização do processo de vendas do Foodtruck é necessária para aumentar
 ## INSTRUÇÕES DE UTILIZAÇÃO:
 
 ## DOCUMENTAÇÃO:
-- [Documentação Final](https://drive.google.com/file/d/1i7cvJ9N9pWvz6rzsD6tSsUfalnOabutx/view?usp=drive_link)
+- [Documentação de Contexto](https://drive.google.com/file/d/1i7cvJ9N9pWvz6rzsD6tSsUfalnOabutx/view?usp=drive_link)
 - [Design da Aplicação](https://www.figma.com/design/wMjJRfzRLtDNESzJPqU6oh/Projeto-Food-Truck?node-id=55-2&node-type=canvas&t=rwFLJp51MdB3ENBw-0)

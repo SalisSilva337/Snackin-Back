@@ -320,7 +320,7 @@ input::-webkit-inner-spin-button {
   box-shadow: 1px 1px 10px rgb(0, 0, 0, 0.2);
   padding: 10px;
   width: 200px;
-  height: 100px;
+  height: 120px;
   border-radius: 10px;
 }
 .subtotalPricesDiv {
@@ -328,12 +328,13 @@ input::-webkit-inner-spin-button {
   box-shadow: 1px 1px 10px rgb(0, 0, 0, 0.2);
   padding: 10px;
   width: 200px;
-  height: 50px;
+  height: 40px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow-y: auto;
 }
 .addToCart {
   height: 50px;
@@ -351,4 +352,37 @@ input::-webkit-inner-spin-button {
   cursor: pointer;
   width: 55px;
   height: 55px;
+}
+.cartGrid {
+  background-color: #eda3a3;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  gap: 10px;
+}
+.priceCartDiv {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+.ProductNameDiv h3 {
+  font-weight: 400;
+}
+.priceCartDiv h3 {
+  font-family: "Noto Sans";
+  font-style: italic;
+}
+.deleteCartItem {
+  border-radius: 5px;
+  background-color: #e7c8c8;
+  border: 0;
+  padding: 5px;
+  box-shadow: 1px 1px 10px rgb(0, 0, 0, 0.2);
+  transition: 0.5s;
+}
+.deleteCartItem:hover {
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #e24f4f;
 }

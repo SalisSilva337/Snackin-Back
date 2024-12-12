@@ -2,6 +2,8 @@
 
 ![screenshot](https://github.com/user-attachments/assets/12e1c404-c3f4-4cec-8690-c5f5f230f495)
 
+`SENAI AL` `TÉCNICO EM INFORMÁTICA PARA WEB`
+
 ## INTEGRANTES:
 - Salis Silva
 - Leonardo Messias

@@ -1,4 +1,5 @@
 # SNACKIN´ BACK
+![image](https://github.com/user-attachments/assets/073b8f18-db29-43ea-a774-2a151cc8b1d0)
 
 ![screenshot](https://github.com/user-attachments/assets/9a492e36-0f9f-4d44-9cbe-26047e3f5bba)
 

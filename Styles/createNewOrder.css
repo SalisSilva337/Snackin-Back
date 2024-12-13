@@ -322,6 +322,10 @@ input::-webkit-inner-spin-button {
   width: 200px;
   height: 120px;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
 }
 .subtotalPricesDiv {
   background-color: #e7c8c8;

@@ -167,10 +167,10 @@ backToData.addEventListener("click", () => {
 
 finishOrder.addEventListener("click", () => {});
 
-// let itemImage = document.querySelector(".itemImage");
-// let productName = document.querySelector("#productName");
-// // let addToCart = document.querySelector(".addToCart");
 let ItemsTable = document.querySelector(".ItemsTable");
+let subtotalItemsDiv = document.querySelector(".subtotalItemsDiv");
+let subtotalPrice = document.querySelector(".subtotalPrice");
+let subtotal = 0;
 
 const options = {
   method: "GET",
@@ -251,5 +251,70 @@ fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=burger", options)
 
       tableGrid.appendChild(addToCart);
       ItemsTable.appendChild(tableGrid);
+
+      addToCart.addEventListener("click", () => {
+        // Criando a div principal "cartGrid"
+        const cartGrid = document.createElement("div");
+        cartGrid.classList.add("cartGrid");
+
+        // Criando a div "ProductNameDiv"
+        const productNameDiv = document.createElement("div");
+        productNameDiv.classList.add("ProductNameDiv");
+
+        // Criando o título "Nome produto"
+        const productCartName = document.createElement("h3");
+        productCartName.textContent = productName.textContent;
+        productNameDiv.appendChild(productCartName);
+
+        // Criando a div "priceCartDiv"
+        const priceCartDiv = document.createElement("div");
+        priceCartDiv.classList.add("priceCartDiv");
+
+        // Criando o elemento "productQuantity"
+        const productQuantity = document.createElement("h3");
+        productQuantity.classList.add("productQuantity");
+        productQuantity.textContent = itemCount.value + " x";
+        priceCartDiv.appendChild(productQuantity);
+
+        // Criando o elemento "productCartPrice"
+        const productCartPrice = document.createElement("h3");
+        productCartPrice.classList.add("productCartPrice");
+        productCartPrice.textContent = productPrice.textContent;
+        priceCartDiv.appendChild(productCartPrice);
+
+        // Criando o botão "Excluir"
+        const deleteButton = document.createElement("button");
+        deleteButton.classList.add("deleteCartItem");
+        deleteButton.textContent = "Excluir";
+
+        // Montando a estrutura
+        cartGrid.appendChild(productNameDiv);
+        cartGrid.appendChild(priceCartDiv);
+        cartGrid.appendChild(deleteButton);
+
+        // Adicionando o "cartGrid" à página (no corpo, por exemplo)
+        subtotalItemsDiv.appendChild(cartGrid);
+
+        // Convertendo itemCount.value para número (caso não seja numérico)
+        let count = parseInt(itemCount.value, 10);
+
+        // Removendo o "R$" e convertendo productPrice.textContent para número (caso seja um valor monetário)
+        let price = parseFloat(
+          productPrice.textContent.replace("R$", "").trim()
+        );
+
+        // Calculando o subtotal
+        let eachProductPrice = count * price;
+
+        subtotal = eachProductPrice + subtotal;
+        // Atualizando o texto de subtotalPrice
+        subtotalPrice.textContent = "R$" + subtotal.toFixed(2); // .toFixed(2) para formatar com duas casas decimais
+
+        deleteButton.addEventListener("click", () => {
+          cartGrid.remove();
+          subtotal = subtotal - eachProductPrice;
+          subtotalPrice.textContent = "R$" + subtotal.toFixed(2);
+        });
+      });
     }
   });

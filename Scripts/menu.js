@@ -90,6 +90,10 @@ function handleCreateButtonClick() {
   deleteButton.addEventListener("click", () => {
     grid.remove();
   });
+  editButton.addEventListener("click", () => {
+    grid.remove();
+    modalSection.style.display = "flex";
+  });
   clearModalInputs(); // Clear inputs after creating the item
 }
 

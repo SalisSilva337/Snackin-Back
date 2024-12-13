@@ -122,6 +122,9 @@ span {
 }
 .sliderDesc {
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 .sliderTitle {
   display: flex;

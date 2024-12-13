@@ -52,11 +52,17 @@ function handleCreateButtonClick() {
   let productPrice = document.createElement("h3");
   let editButton = document.createElement("button");
   let editImg = document.createElement("img");
+  let deleteButton = document.createElement("button");
+  let deleteImg = document.createElement("img");
+  let buttonsGridDiv = document.createElement("div");
 
   grid.className = "grid";
   itemImageDiv.className = "itemImage";
   editButton.className = "editButton";
+  deleteButton.className = "editButton";
 
+  buttonsGridDiv.style.display = "flex";
+  buttonsGridDiv.style.gap = "10px";
   productName.textContent = inputName.value;
   productCategory.textContent = selectCategory.value;
   productPrice.textContent = "R$" + inputPrice.value;
@@ -66,16 +72,24 @@ function handleCreateButtonClick() {
     : "";
   editImg.src = "../../Imgs/icons/editIcon.svg";
 
+  deleteImg.src = "../../Imgs/icons/deleteIcon.svg";
   grid.appendChild(productName);
   itemImageDiv.appendChild(itemImage);
   grid.appendChild(itemImageDiv);
   grid.appendChild(productCategory);
   grid.appendChild(productPrice);
+  buttonsGridDiv.appendChild(editButton);
+  buttonsGridDiv.appendChild(deleteButton);
   editButton.appendChild(editImg);
-  grid.appendChild(editButton);
+
+  deleteButton.appendChild(deleteImg);
+  grid.appendChild(buttonsGridDiv);
   gridSection.appendChild(grid);
 
   modalSection.style.display = "none";
+  deleteButton.addEventListener("click", () => {
+    grid.remove();
+  });
   clearModalInputs(); // Clear inputs after creating the item
 }
 

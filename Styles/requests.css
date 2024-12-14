@@ -58,7 +58,7 @@ nav button:hover {
 .grid {
   background-color: #e7c8c8;
   padding: 30px;
-  height: 300px;
+  height: 350px;
   justify-content: center;
   align-items: center;
   display: flex;
@@ -71,7 +71,7 @@ nav button:hover {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 15px;
+  gap: 25px;
   overflow: auto;
 }
 .orderSettingsDiv {
@@ -121,4 +121,9 @@ nav button:hover {
   font-size: 15px;
   font-style: italic;
   font-family: "Noto Sans";
+}
+.labelItemsTable {
+  width: 500px;
+  display: flex;
+  justify-content: center;
 }

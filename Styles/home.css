@@ -127,6 +127,7 @@ span {
   flex-direction: column;
   gap: 15px;
   padding: 2px;
+  font-weight: 500;
   font-family: "Noto Sans";
   font-style: italic;
 }
@@ -149,11 +150,13 @@ span {
 /* Track */
 .sliderDesc::-webkit-scrollbar-track {
   background: #f1f1f1;
+  border-radius: 10px;
 }
 
 /* Handle */
 .sliderDesc::-webkit-scrollbar-thumb {
   background: #e7c8c8;
+  border-radius: 10px;
 }
 
 /* Handle on hover */

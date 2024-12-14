@@ -327,6 +327,26 @@ input::-webkit-inner-spin-button {
   gap: 10px;
   overflow-y: auto;
 }
+.subtotalItemsDiv::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.subtotalItemsDiv::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+/* Handle */
+.subtotalItemsDiv::-webkit-scrollbar-thumb {
+  background: #e7c8c8;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+.subtotalItemsDiv::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
 .subtotalPricesDiv {
   background-color: #e7c8c8;
   box-shadow: 1px 1px 10px rgb(0, 0, 0, 0.2);

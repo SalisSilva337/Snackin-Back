@@ -52,6 +52,23 @@ h2 {
   border-radius: 10px;
   transition: 0.3s;
 }
+
+@keyframes gridAnim {
+  from {
+    scale: 0;
+  }
+  to {
+    scale: 1;
+  }
+}
+@keyframes gridReverseAnim {
+  from {
+    scale: 1;
+  }
+  to {
+    scale: 0;
+  }
+}
 .grid:hover {
   width: 370px;
   height: 410px;

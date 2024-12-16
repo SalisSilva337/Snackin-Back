@@ -20,7 +20,7 @@ let createListenerAdded = false;
 
 createItem.addEventListener("click", () => {
   modalSection.style.display = "flex";
-
+  modalContent.style.animation = "gridAnim .5s";
   // Remove the existing event listener if it has already been added
   if (createListenerAdded) {
     buttonCreate.removeEventListener("click", handleCreateButtonClick);
@@ -32,13 +32,19 @@ createItem.addEventListener("click", () => {
 
   // Close modal when cancel button is clicked
   buttonCancel.addEventListener("click", () => {
-    modalSection.style.display = "none";
-    clearModalInputs(); // Clear inputs on cancel
+    modalContent.style.animation = "gridReverseAnim .5s";
+    setTimeout(() => {
+      modalSection.style.display = "none";
+      clearModalInputs(); // Clear inputs on close
+    }, 500);
   });
 
   closeButton.addEventListener("click", () => {
-    modalSection.style.display = "none";
-    clearModalInputs(); // Clear inputs on close
+    modalContent.style.animation = "gridReverseAnim .5s";
+    setTimeout(() => {
+      modalSection.style.display = "none";
+      clearModalInputs(); // Clear inputs on close
+    }, 500);
   });
 });
 
@@ -87,6 +93,7 @@ function handleCreateButtonClick() {
   gridSection.appendChild(grid);
 
   modalSection.style.display = "none";
+  grid.style.animation = "gridAnim .5s";
   deleteButton.addEventListener("click", () => {
     grid.remove();
   });

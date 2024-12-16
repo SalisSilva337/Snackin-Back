@@ -121,6 +121,7 @@ nav button:hover {
   font-size: 15px;
   font-style: italic;
   font-family: "Noto Sans";
+  transition: 0.5s;
 }
 .labelItemsTable {
   width: 500px;

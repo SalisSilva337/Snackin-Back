@@ -82,3 +82,28 @@ iframe {
   height: 100vh;
   width: 100vw;
 }
+
+@media only screen and (max-width: 1150px) {
+  .sideBar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100px;
+    width: 100%;
+    box-shadow: 1px 1px 10px rgb(0, 0, 0, 0.2);
+  }
+  .logo {
+    display: none;
+  }
+  .buttonsNav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .navBarButtons {
+    height: 80px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+}

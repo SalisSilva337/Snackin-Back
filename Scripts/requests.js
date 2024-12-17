@@ -2,8 +2,6 @@ let grid = document.querySelectorAll(".grid");
 
 grid.forEach((gridElement) => {
   gridElement.addEventListener("mouseover", () => {
-    console.log("in");
-
     // Adicionar ouvintes de click apenas para o gridElement específico
     const orderDone = gridElement.querySelector("#orderDone");
     const orderDelete = gridElement.querySelector("#orderDelete");

@@ -410,3 +410,54 @@ input::-webkit-inner-spin-button {
   border-radius: 5px;
   background-color: #e24f4f;
 }
+
+@media only screen and (max-width: 1150px) {
+  body {
+    margin-bottom: 120px;
+  }
+  .grid {
+    height: 800px;
+  }
+  .aLocal {
+    width: 160px;
+    height: 700px;
+  }
+
+  .allInputs {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .bottomButtonsDiv {
+    flex-direction: column;
+  }
+  .fullTable {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .ItemsTable {
+    width: 100%;
+    padding: 5px;
+    overflow: auto;
+  }
+  .tableGrid {
+    width: 100%;
+    gap: 10px;
+  }
+  .itemCount {
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+  }
+  .addToCart {
+    width: 50px;
+    height: 100%;
+  }
+  .addToCart:hover {
+    width: 50px;
+    height: 100%;
+  }
+}

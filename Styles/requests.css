@@ -128,3 +128,26 @@ nav button:hover {
   display: flex;
   justify-content: center;
 }
+
+@media only screen and (max-width: 1150px) {
+  body {
+    margin-bottom: 120px;
+  }
+  .grid {
+    flex-direction: column;
+    height: 100%;
+    gap: 30px;
+  }
+  .labelItemsTable {
+    width: 100%;
+  }
+  .orderItemsTable {
+    width: 100%;
+  }
+  .orderPreparingButtonsDiv {
+    width: 100%;
+  }
+  .clientDataDiv {
+    width: 100%;
+  }
+}

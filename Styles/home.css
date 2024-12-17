@@ -166,11 +166,11 @@ span {
 
 @media only screen and (max-width: 1150px) {
   .grid {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 180px;
   }
   .grid img {
-    width: 150px;
+    width: 120px;
     height: 100px;
   }
 
@@ -183,5 +183,9 @@ span {
   }
   .sliderTitle img {
     width: 250px;
+  }
+  .slider {
+    flex-direction: column;
+    height: 500px;
   }
 }

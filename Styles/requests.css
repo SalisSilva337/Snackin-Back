@@ -75,7 +75,7 @@ nav button:hover {
   overflow: auto;
 }
 .orderSettingsDiv {
-  width: 70%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: end;
@@ -91,6 +91,8 @@ nav button:hover {
 .orderPreparingButtonsDiv {
   display: flex;
   gap: 15px;
+  width: 500px;
+  justify-content: right;
 }
 .orderPreparingButtons {
   width: 50px;
@@ -114,7 +116,7 @@ nav button:hover {
   background-color: #beabf8;
   padding: 10px;
   border-radius: 5px;
-  width: 350px;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -148,6 +150,12 @@ nav button:hover {
     width: 100%;
   }
   .clientDataDiv {
+    width: 100%;
+  }
+  .preparingOrder {
+    width: 50%;
+  }
+  .orderSettingsDiv {
     width: 100%;
   }
 }

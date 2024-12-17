@@ -110,9 +110,9 @@ a {
 }
 
 .aLocal:hover {
-  width: 400px;
   border: 1dvh solid #df7272;
 }
+
 .buttonsLocal:hover {
   cursor: pointer;
 }
@@ -420,9 +420,14 @@ input::-webkit-inner-spin-button {
   }
   .aLocal {
     width: 160px;
-    height: 700px;
+    height: 100%;
   }
-
+  #gridLocal {
+    height: 500px;
+  }
+  .alocal:hover {
+    width: 100%;
+  }
   .allInputs {
     display: flex;
     flex-direction: column;

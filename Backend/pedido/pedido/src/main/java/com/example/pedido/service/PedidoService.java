@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.example.pedido.model.Pedido;
 import com.example.pedido.model.dto.PedidoRequestDto;
-import com.example.pedido.model.enums.PagamentoEnum;
 import com.example.pedido.model.enums.StatusEnum;
 import com.example.pedido.repository.PedidoRepository;
 
@@ -21,7 +20,7 @@ public class PedidoService {
 
     public void addPedido(PedidoRequestDto request){
         Pedido novoPedido = new Pedido();
-        novoPedido.setMetodo_de_pagamento(PagamentoEnum.A_VISTA);
+        novoPedido.setMetodo_de_pagamento(request.getMetodo_de_pagamento());
         novoPedido.setNumero_do_pedido(request.getNumero_do_pedido());
         novoPedido.setPedido_criado_em(LocalDateTime.now());
         novoPedido.setStatus(StatusEnum.PENDENTE);
@@ -33,7 +32,7 @@ public class PedidoService {
         if(id == null) throw new RuntimeException("id inválido");
         Pedido pedido = pedidoRepository.findById(id)
             .orElseThrow(
-                () -> new RuntimeException("Projeto não encontrado")
+                () -> new RuntimeException("Pedido não encontrado")
                 );
         return pedido;
         

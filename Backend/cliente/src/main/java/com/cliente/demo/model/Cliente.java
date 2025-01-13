@@ -17,7 +17,7 @@ public class Cliente {
     private Integer id;
     
     private String nome;
-    private Integer telefone;
+    private Long telefone;
 
     public Cliente() {
     }

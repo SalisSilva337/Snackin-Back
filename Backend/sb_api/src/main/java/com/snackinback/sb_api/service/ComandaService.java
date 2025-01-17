@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.snackinback.sb_api.model.Comanda;
 import com.snackinback.sb_api.model.Item;
+import com.snackinback.sb_api.model.dto.ComandaStatusRequestDto;
 import com.snackinback.sb_api.model.dto.ItemUpdateRequestDto;
 import com.snackinback.sb_api.repository.ComandaRepository;
 import com.snackinback.sb_api.repository.ItemRepository;
@@ -52,6 +53,17 @@ public class ComandaService {
             
             comandaRepository.save(comanda);
 
+    }
+
+    public void updateStatusComanda(Long id, ComandaStatusRequestDto update){
+        if(id == null)throw new RuntimeException("ID inválido.");
+        
+            Comanda comanda = comandaRepository.findById(id)
+                    .orElseThrow(
+                            () -> new RuntimeException("Comanda não encontrada.")
+                        );
+
+            comanda.setStatus(update.getStatus());
     }
 
     public void deleteComanda(Long id){

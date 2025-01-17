@@ -2,7 +2,9 @@ package com.snackinback.sb_api.controller;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -33,6 +35,16 @@ public class ComandaController {
     @GetMapping
     public List<Comanda> getAllComandas(){
         return comandaService.listarTodasAsComandas();
+    }
+
+    @PatchMapping("/{id}")
+    public void updateComanda(@PathVariable Long id, Comanda request){
+        comandaService.updateComanda(id, request);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteComandaById(@PathVariable Long id){
+        comandaService.deleteComanda(id);
     }
 }
 

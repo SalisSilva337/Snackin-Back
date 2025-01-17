@@ -2,6 +2,8 @@ package com.snackinback.sb_api.model;
 
 import java.time.LocalDateTime;
 
+import com.snackinback.sb_api.model.enums.ComandaStatusEnum;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,7 +20,7 @@ public class Comanda {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private Integer numero_do_pedido;
-    private String status;
+    private ComandaStatusEnum status;
     private Double subtotal;
     private LocalDateTime pedido_criado_em;
     private String update;

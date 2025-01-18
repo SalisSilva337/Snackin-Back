@@ -23,25 +23,21 @@ public class ComandaController {
     private final ComandaService comandaService;
 
     @PostMapping
-    public void criarComanda(@RequestBody Comanda request){
-        comandaService.addComanda(request);
+    public void criarComanda(){
+        comandaService.addComanda();
     }
-
     @GetMapping("/{id}")
     public Comanda getById(@PathVariable Long id){
         return comandaService.getComandaById(id);
     }
-
     @GetMapping
     public List<Comanda> getAllComandas(){
         return comandaService.listarTodasAsComandas();
     }
-
     @PatchMapping("/{id}")
-    public void updateComanda(@PathVariable Long id, Comanda request){
+    public void updateComanda(@PathVariable Long id, @RequestBody Comanda request){
         comandaService.updateComanda(id, request);
     }
-
     @DeleteMapping("/{id}")
     public void deleteComandaById(@PathVariable Long id){
         comandaService.deleteComanda(id);

@@ -1,6 +1,8 @@
 package com.snackinback.sb_api.service;
 
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
@@ -8,6 +10,7 @@ import com.snackinback.sb_api.model.Comanda;
 import com.snackinback.sb_api.model.Item;
 import com.snackinback.sb_api.model.dto.ComandaStatusRequestDto;
 import com.snackinback.sb_api.model.dto.ItemUpdateRequestDto;
+import com.snackinback.sb_api.model.enums.ComandaStatusEnum;
 import com.snackinback.sb_api.repository.ComandaRepository;
 import com.snackinback.sb_api.repository.ItemRepository;
 
@@ -21,8 +24,16 @@ public class ComandaService {
     private final ItemRepository itemRepository;
 
     // SERVIÇOS DA COMANDA
-    public void addComanda(Comanda request){
-        comandaRepository.save(request);
+    public void addComanda(){
+        Comanda comanda = new Comanda();
+        comanda.setNumero_do_pedido(UUID.randomUUID().toString());
+        comanda.setMetodo_de_pagamento("");
+        comanda.setPedido_criado_em(LocalDateTime.now());
+        comanda.setUpdate(LocalDateTime.now());
+        comanda.setStatus(ComandaStatusEnum.PENDENTE);
+        comanda.setSubtotal(0.0);
+
+        comanda = comandaRepository.save(comanda);
     }
 
     public Comanda getComandaById(Long id){
@@ -62,7 +73,7 @@ public class ComandaService {
                     .orElseThrow(
                             () -> new RuntimeException("Comanda não encontrada.")
                         );
-
+            comanda.setStatus(ComandaStatusEnum.PENDENTE);
             comanda.setStatus(update.getStatus());
     }
 
@@ -70,7 +81,7 @@ public class ComandaService {
         if(id == null)throw new RuntimeException("ID inválido.");
         comandaRepository.deleteById(id);
     }
-    
+
     // SERVIÇOS DE ITEM
     public void addItem(Item request){
         itemRepository.save(request);

@@ -37,18 +37,18 @@ public class ProdutoService {
     public void updateProduto(Long id, Produto update){
         if(id == null)throw new RuntimeException("ID inválido.");
         
-            Produto produto = produtoRepository.findById(id)
-                    .orElseThrow(
-                            () -> new RuntimeException("Produto não encontrado.")
-                        );
-            produto.setNome(update.getNome());
-            produto.setPreco(update.getPreco());
-            
-            produtoRepository.save(produto);
+        Produto produto = produtoRepository.findById(id)
+                .orElseThrow(
+                        () -> new RuntimeException("Produto não encontrado.")
+                    );
+        produto.setNome(update.getNome());
+        produto.setPreco(update.getPreco());
+        
+        produtoRepository.save(produto);
 
     }
 
-    public void deleteItem(Long id){
+    public void deleteProduto(Long id){
         if(id == null)throw new RuntimeException("ID inválido.");
         produtoRepository.deleteById(id);
     }

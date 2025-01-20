@@ -2,8 +2,8 @@ package com.snackinback.sb_api.service;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.UUID;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.stereotype.Service;
 
 import com.snackinback.sb_api.model.Comanda;
@@ -24,9 +24,10 @@ public class ComandaService {
     private final ItemRepository itemRepository;
 
     // SERVIÇOS DA COMANDA
+    @SuppressWarnings("deprecation")
     public void addComanda(){
         Comanda comanda = new Comanda();
-        comanda.setNumero_do_pedido(UUID.randomUUID().toString());
+        comanda.setNumero_do_pedido(RandomStringUtils.randomAlphanumeric(4).toUpperCase());
         comanda.setMetodo_de_pagamento("");
         comanda.setPedido_criado_em(LocalDateTime.now());
         comanda.setUpdate(LocalDateTime.now());
@@ -122,3 +123,5 @@ public class ComandaService {
     }
 
 }
+
+

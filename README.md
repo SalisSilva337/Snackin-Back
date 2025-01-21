@@ -20,6 +20,12 @@ A modernização do processo de vendas do Foodtruck é necessária para aumentar
 
 ## INSTRUÇÕES DE UTILIZAÇÃO:
 
+![comousar](https://github.com/user-attachments/assets/1ba9cc6c-62fc-4fe9-80da-0649265aa109)
+
+Entre no "SnackinBackApplication.java" e clique em Run (Rodar) no canto superior direito da tela
+(É necessário o Java 21 para rodar a aplicação Backend)
+
+
 ## DOCUMENTAÇÃO:
 - [Documentação de Contexto](https://drive.google.com/file/d/1i7cvJ9N9pWvz6rzsD6tSsUfalnOabutx/view?usp=drive_link)
 - [Design da Aplicação](https://www.figma.com/design/wMjJRfzRLtDNESzJPqU6oh/Projeto-Food-Truck?node-id=55-2&node-type=canvas&t=rwFLJp51MdB3ENBw-0)

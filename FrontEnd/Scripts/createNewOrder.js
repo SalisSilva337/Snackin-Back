@@ -1,10 +1,30 @@
 let spanSelectedButton = document.querySelector("#spanSelectedButton");
 let buttonsPlaces = document.querySelectorAll(".buttonsLocal");
 
+//address inputs
+let divCep = document.querySelector(".addressInputs");
+let cep = document.querySelector("#cepTxt");
+let inputsPlace = document.querySelectorAll(".inputsPlace");
+
 buttonsPlaces.forEach((btn) => {
   btn.addEventListener("click", () => {
     console.log(btn.value);
     spanSelectedButton.textContent = "Selecionado: " + btn.value;
+    if (btn.value == "retiradaComerNoLocal") {
+      divCep.style.display = "none";
+      //inputs endereco
+      cep.value = "Loja";
+      document.querySelector("#ruaTxt").value = "Loja";
+      document.querySelector("#bairroTxt").value = "Loja";
+      document.querySelector("#numTxt").value = "00";
+      console.log(cep.value);
+      console.log(document.querySelector("#ruaTxt").value);
+      console.log(document.querySelector("#bairroTxt").value);
+      console.log(document.querySelector("#numTxt").value);
+    } else {
+      isRetiradaComerNoLocal = false;
+      divCep.style.display = "block";
+    }
   });
 });
 
@@ -39,9 +59,6 @@ selectPayment.addEventListener("change", () => {
 });
 
 //Address Part
-
-let cep = document.querySelector("#cepTxt");
-let inputsPlace = document.querySelectorAll(".inputsPlace");
 
 cep.addEventListener("change", () => {
   cepvalue = cep.value;

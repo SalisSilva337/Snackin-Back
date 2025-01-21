@@ -33,7 +33,7 @@
             <a class="aLocal" href="#gridData"
               ><button
                 class="buttonsLocal"
-                value="retirada/comerNoLocal"
+                value="retiradaComerNoLocal"
                 id="buttonGetOnPlace"
               >
                 <img src="../../Imgs/icons/bagIcon.svg" alt="" />Retirada/Comer
@@ -59,16 +59,6 @@
                 <label for="">Telefone</label>
                 <input type="number" class="inputsClientData" />
               </div>
-              <div class="eachInput">
-                <label for="">Método de Pagamento</label>
-                <select name="" class="selectPayment">
-                  <option value="" hidden>--- Selecione ---</option>
-                  <option value="pix">PIX</option>
-                  <option value="credito">Crédito</option>
-                  <option value="debito">Débito</option>
-                  <option value="dinheiro">Dinheiro</option>
-                </select>
-              </div>
             </section>
 
             <section class="addressInputs">
@@ -76,7 +66,7 @@
                 <h3>Endereço</h3>
               </div>
 
-              <div class="eachInput">
+              <div class="eachInput" id="cepInputs">
                 <label for="">CEP</label>
                 <input type="text" id="cepTxt" class="inputsClientData" />
                 <input
@@ -93,7 +83,12 @@
                   id="ruaTxt"
                   disabled
                 />
-                <input type="number" class="inputsPlace" placeholder="Nº" />
+                <input
+                  type="number"
+                  id="numTxt"
+                  class="inputsPlace"
+                  placeholder="Nº"
+                />
               </div>
             </section>
           </section>
@@ -114,28 +109,22 @@
           <div class="fullTable">
             <div class="ItemsTable"></div>
             <div class="filterArea">
-              <!-- <h1>Filtros</h1>
-              <h3>Categoria</h3>
-              <select class="selectFilterByCategory">
-                <option value="Lanche">Lanche</option>
-                <option value="Acompanhamento">Acompanhamento</option>
-                <option value="Bebida">Bebida</option>
-                <option value="Combo">Combo</option>
-              </select>
-
-              <h3>Valor</h3>
-              <select class="selectFilterByPrice">
-                <option value="10">Até R$10.00</option>
-                <option value="30">Até R$30.00</option>
-                <option value="50">Até R$50.00</option>
-                <option value="100">Até R$100.00</option>
-              </select> -->
               <div>
                 <h1>Subtotal</h1>
               </div>
               <div class="subtotalItemsDiv"></div>
               <div class="subtotalPricesDiv">
                 <h1 class="subtotalPrice"></h1>
+              </div>
+              <div class="eachInput">
+                <label for="">Método de Pagamento</label>
+                <select name="" class="selectPayment">
+                  <option value="" hidden>--- Selecione ---</option>
+                  <option value="pix">PIX</option>
+                  <option value="credito">Crédito</option>
+                  <option value="debito">Débito</option>
+                  <option value="dinheiro">Dinheiro</option>
+                </select>
               </div>
             </div>
           </div>

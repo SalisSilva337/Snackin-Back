@@ -4,8 +4,10 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import com.snackinback.sb_api.model.enums.ComandaStatusEnum;
+import com.snackinback.sb_api.model.enums.MetodoDePagamentoEnum;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -28,11 +30,12 @@ public class Comanda {
     @OneToMany(mappedBy = "comanda", cascade=CascadeType.ALL)
     private List<Item> item;
     
-    private String numero_do_pedido;
+    @Column(unique = true)
+    private String numeroDoPedido;
     private ComandaStatusEnum status;
     private Double subtotal;
-    private LocalDateTime pedido_criado_em;
+    private LocalDateTime pedidoCriadoEm;
     private LocalDateTime update;
-    private String metodo_de_pagamento;
+    private MetodoDePagamentoEnum metodoDePagamento;
 
 }

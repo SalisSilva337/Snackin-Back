@@ -29,5 +29,4 @@ public class Item {
     private Comanda comanda;
     
     private Integer quantidade;
-    private String observacao;
 }

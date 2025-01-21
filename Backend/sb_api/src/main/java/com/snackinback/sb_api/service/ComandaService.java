@@ -8,9 +8,11 @@ import org.springframework.stereotype.Service;
 
 import com.snackinback.sb_api.model.Comanda;
 import com.snackinback.sb_api.model.Item;
+import com.snackinback.sb_api.model.Produto;
 import com.snackinback.sb_api.model.dto.ComandaStatusRequestDto;
 import com.snackinback.sb_api.model.dto.ItemUpdateRequestDto;
 import com.snackinback.sb_api.model.enums.ComandaStatusEnum;
+import com.snackinback.sb_api.model.enums.MetodoDePagamentoEnum;
 import com.snackinback.sb_api.repository.ComandaRepository;
 import com.snackinback.sb_api.repository.ItemRepository;
 
@@ -26,15 +28,21 @@ public class ComandaService {
     // SERVIÇOS DA COMANDA
     @SuppressWarnings("deprecation")
     public void addComanda(){
-        Comanda comanda = new Comanda();
-        comanda.setNumero_do_pedido(RandomStringUtils.randomAlphanumeric(4).toUpperCase());
-        comanda.setMetodo_de_pagamento("");
-        comanda.setPedido_criado_em(LocalDateTime.now());
-        comanda.setUpdate(LocalDateTime.now());
-        comanda.setStatus(ComandaStatusEnum.PENDENTE);
-        comanda.setSubtotal(0.0);
+        String nPedido = RandomStringUtils.randomAlphanumeric(4).toUpperCase();
+        Comanda comanda = comandaRepository.findByNumeroDoPedido(nPedido).orElse(new Comanda());//busca pelo numero
 
-        comanda = comandaRepository.save(comanda);
+        if(comanda.getNumeroDoPedido() == null){
+            comanda.setNumeroDoPedido(nPedido);
+            comanda.setMetodoDePagamento(MetodoDePagamentoEnum.PIX);
+            comanda.setPedidoCriadoEm(LocalDateTime.now());
+            comanda.setUpdate(LocalDateTime.now());
+            comanda.setStatus(ComandaStatusEnum.PENDENTE);
+            comanda.setSubtotal(0.0);
+    
+            comanda = comandaRepository.save(comanda);
+            return;
+        } 
+        throw new RuntimeException("Erro ao criar o pedido!");
     }
 
     public Comanda getComandaById(Long id){
@@ -61,7 +69,7 @@ public class ComandaService {
                         );
             comanda.setStatus(update.getStatus());
             comanda.setUpdate(update.getUpdate());
-            comanda.setMetodo_de_pagamento(update.getMetodo_de_pagamento());
+            comanda.setMetodoDePagamento(update.getMetodoDePagamento());
             
             comandaRepository.save(comanda);
 
@@ -84,8 +92,9 @@ public class ComandaService {
     }
 
     // SERVIÇOS DE ITEM
-    public void addItem(Item request){
-        itemRepository.save(request);
+    public void addItem(){
+        Item item = new Item();
+        itemRepository.save(item);
     }
 
     public Item getItemById(Long id){
@@ -111,7 +120,6 @@ public class ComandaService {
                             () -> new RuntimeException("Item não encontrado.")
                         );
             item.setQuantidade(update.getQuantidade());
-            item.setObservacao(update.getObservacao());
             
             itemRepository.save(item);
 

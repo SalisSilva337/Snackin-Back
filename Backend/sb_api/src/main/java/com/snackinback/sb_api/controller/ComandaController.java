@@ -25,6 +25,7 @@ public class ComandaController {
     @PostMapping
     public void criarComanda(){
         comandaService.addComanda();
+        comandaService.addItem();
     }
     @GetMapping("/{id}")
     public Comanda getById(@PathVariable Long id){

@@ -13,7 +13,7 @@ buttonsPlaces.forEach((btn) => {
     if (btn.value == "retiradaComerNoLocal") {
       divCep.style.display = "none";
       //inputs endereco
-      cep.value = 57000000;
+      cep.value = 57010000;
       document.querySelector("#ruaTxt").value = "Loja";
       document.querySelector("#bairroTxt").value = "Loja";
       document.querySelector("#numTxt").value = "00";

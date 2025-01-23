@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.snackinback.sb_api.model.Comanda;
+import com.snackinback.sb_api.model.dto.ComandaResponseDto;
+import com.snackinback.sb_api.model.dto.ItemRequestDto;
 import com.snackinback.sb_api.service.ComandaService;
 
 import lombok.RequiredArgsConstructor;
@@ -25,23 +27,26 @@ public class ComandaController {
     @PostMapping
     public void criarComanda(){
         comandaService.addComanda();
-        comandaService.addItem();
     }
     @GetMapping("/{id}")
     public Comanda getById(@PathVariable Long id){
         return comandaService.getComandaById(id);
     }
     @GetMapping
-    public List<Comanda> getAllComandas(){
+    public List<ComandaResponseDto> getAllComandas(){
         return comandaService.listarTodasAsComandas();
     }
     @PatchMapping("/{id}")
-    public void updateComanda(@PathVariable Long id, @RequestBody Comanda request){
+    public void updateComanda(@PathVariable Long id, @RequestBody ComandaResponseDto request){
         comandaService.updateComanda(id, request);
     }
     @DeleteMapping("/{id}")
     public void deleteComandaById(@PathVariable Long id){
         comandaService.deleteComanda(id);
+    }
+    @PostMapping("/item")
+    public void addItem(@RequestBody ItemRequestDto request){
+        comandaService.addItem(request);
     }
 }
 

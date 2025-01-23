@@ -2,6 +2,8 @@ package com.snackinback.sb_api.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -23,6 +25,7 @@ public class Produto {
     Integer id;
 
     @OneToMany(mappedBy = "produto", cascade=CascadeType.ALL)
+    @JsonIgnore
     private List<Item> item;
 
     String nome;

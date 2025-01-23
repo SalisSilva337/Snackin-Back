@@ -3,6 +3,7 @@ package com.snackinback.sb_api.model;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.snackinback.sb_api.model.enums.ComandaStatusEnum;
 import com.snackinback.sb_api.model.enums.MetodoDePagamentoEnum;
 
@@ -28,12 +29,13 @@ public class Comanda {
     private Integer id;
 
     @OneToMany(mappedBy = "comanda", cascade=CascadeType.ALL)
+    // @JsonIgnore
     private List<Item> item;
     
     @Column(unique = true)
-    private String numeroDoPedido;
+    private String codigoDoPedido;
     private ComandaStatusEnum status;
-    private Double subtotal;
+    private Double valorTotal;
     private LocalDateTime pedidoCriadoEm;
     private LocalDateTime update;
     private MetodoDePagamentoEnum metodoDePagamento;

@@ -9,5 +9,5 @@ import com.snackinback.sb_api.model.Comanda;
 
 @Repository
 public interface ComandaRepository extends JpaRepository<Comanda, Long>{
-    Optional<Comanda> findByNumeroDoPedido(String numero);
+    Optional<Comanda> findByCodigoDoPedido(String numero);
 }

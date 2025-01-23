@@ -7,10 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ItemRequestDto {
-
-    private Long comandaId;
-    private Long produtoId;
-    private String observacao;
+public class ItemResponseDto {
+    private String produtoNome;
     private Integer quantidade;
+    private Double totalItem;
+    private Double subtotal;
 }

@@ -17,6 +17,7 @@ public class ComandaResponseDto {
     private Integer comandaId;
     private List<ItemResponseDto> items;
     private String codigoDoPedido;
+    private Double subtotal;
     private ComandaStatusEnum status;
     private LocalDateTime pedidoCriadoEm;
     private MetodoDePagamentoEnum metodoDePagamento;

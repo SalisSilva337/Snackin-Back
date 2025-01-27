@@ -1,7 +1,5 @@
 package com.snackinback.sb_api.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -32,5 +30,4 @@ public class Item {
     private Comanda comanda;
     
     private Integer quantidade;
-    private Double subtotal;
 }

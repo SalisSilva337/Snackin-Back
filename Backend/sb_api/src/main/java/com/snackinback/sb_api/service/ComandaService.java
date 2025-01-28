@@ -43,7 +43,7 @@ public class ComandaService {
             comanda.setPedidoCriadoEm(LocalDateTime.now());
             comanda.setUpdate(LocalDateTime.now());
             comanda.setStatus(ComandaStatusEnum.PENDENTE);
-            comanda.setValorTotal(0.0);
+            comanda.setSubtotal(0.0);
     
             comanda = comandaRepository.save(comanda);
             return;
@@ -77,13 +77,18 @@ public class ComandaService {
             itemComanda.setStatus(comanda.getStatus());
             itemComanda.setMetodoDePagamento(comanda.getMetodoDePagamento());
 
+            double cont = 0.0;
+
             for (Item i : comanda.getItem()) {
                 item = new ItemResponseDto();
                 item.setProdutoNome(i.getProduto().getNome());
                 item.setQuantidade(i.getQuantidade());
                 item.setTotalItem(i.getQuantidade()*i.getProduto().getPreco());
+                cont += item.getTotalItem();
                 responseItem.add(item);
             }
+            
+            itemComanda.setSubtotal(cont);
             itemComanda.setItems(responseItem);
             response.add(itemComanda);
         }

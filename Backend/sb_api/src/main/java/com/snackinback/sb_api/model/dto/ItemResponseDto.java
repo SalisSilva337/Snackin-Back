@@ -11,5 +11,4 @@ public class ItemResponseDto {
     private String produtoNome;
     private Integer quantidade;
     private Double totalItem;
-    private Double subtotal;
 }

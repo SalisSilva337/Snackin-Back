@@ -3,7 +3,6 @@ package com.snackinback.sb_api.model;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.snackinback.sb_api.model.enums.ComandaStatusEnum;
 import com.snackinback.sb_api.model.enums.MetodoDePagamentoEnum;
 
@@ -40,7 +39,7 @@ public class Comanda {
     @Column(unique = true)
     private String codigoDoPedido;
     private ComandaStatusEnum status;
-    private Double valorTotal;
+    private Double subtotal;
     private LocalDateTime pedidoCriadoEm;
     private LocalDateTime update;
     private MetodoDePagamentoEnum metodoDePagamento;

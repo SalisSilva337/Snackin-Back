@@ -20,9 +20,9 @@ public class Endereco {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToOne
-    @JoinColumn(name = "cliente_id")
-    private Cliente cliente;
+    // @ManyToOne
+    // @JoinColumn(name = "cliente_id")
+    // private Cliente cliente;
     private String cep;
     private Integer rua;
     private Integer numero_da_casa;

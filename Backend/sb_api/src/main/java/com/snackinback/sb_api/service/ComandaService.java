@@ -82,6 +82,7 @@ public class ComandaService {
             for (Item i : comanda.getItem()) {
                 item = new ItemResponseDto();
                 item.setProdutoNome(i.getProduto().getNome());
+                item.setCategoria(i.getProduto().getCategoria());
                 item.setQuantidade(i.getQuantidade());
                 item.setTotalItem(i.getQuantidade()*i.getProduto().getPreco());
                 cont += item.getTotalItem();

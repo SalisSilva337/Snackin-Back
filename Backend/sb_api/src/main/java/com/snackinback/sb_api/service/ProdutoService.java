@@ -43,6 +43,7 @@ public class ProdutoService {
                     );
         produto.setNome(update.getNome());
         produto.setPreco(update.getPreco());
+        produto.setCategoria(update.getCategoria());
         
         produtoRepository.save(produto);
 

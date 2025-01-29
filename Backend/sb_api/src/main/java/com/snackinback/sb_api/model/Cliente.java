@@ -24,9 +24,9 @@ public class Cliente {
     private String nome;
     private Integer telefone;
 
-    @OneToMany(mappedBy = "endereco", cascade = CascadeType.ALL)
-    private List <Endereco> endereco;
+    // @OneToMany(mappedBy = "endereco", cascade = CascadeType.ALL)
+    // private List <Endereco> endereco;
 
-    @OneToMany(mappedBy = "comanda", cascade = CascadeType.ALL)
-    private List <Comanda> comanda;
+    // @OneToMany(mappedBy = "comanda", cascade = CascadeType.ALL)
+    // private List <Comanda> comanda;
 }

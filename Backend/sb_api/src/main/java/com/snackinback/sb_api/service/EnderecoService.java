@@ -15,12 +15,12 @@ public class EnderecoService {
 
     private final EnderecoRepository enderecoRepository;
 
-    public void addProduto(Endereco request){
+    public void addEndereco(Endereco request){
         
         enderecoRepository.save(request);
     }
 
-     public Endereco getProdutoById(Long id){
+     public Endereco getEnderecoById(Long id){
         
         if (id==null) throw new RuntimeException("ID inválido.");
         Endereco endereco = enderecoRepository.findById(id)
@@ -35,7 +35,7 @@ public class EnderecoService {
         return enderecoRepository.findAll();
     }
 
-    public void updateProduto(Long id, Endereco update){
+    public void updateEndereco(Long id, Endereco update){
         if(id == null)throw new RuntimeException("ID inválido.");
         
             Endereco endereco = enderecoRepository.findById(id)
@@ -50,7 +50,7 @@ public class EnderecoService {
 
     }
 
-    public void deleteItem(Long id){
+    public void deleteEndereco(Long id){
         if(id == null)throw new RuntimeException("ID inválido.");
         enderecoRepository.deleteById(id);
     }

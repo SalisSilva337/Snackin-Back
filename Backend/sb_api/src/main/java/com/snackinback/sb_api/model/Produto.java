@@ -3,6 +3,7 @@ package com.snackinback.sb_api.model;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.snackinback.sb_api.model.enums.CategoriasEnum;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -30,5 +31,5 @@ public class Produto {
 
     String nome;
     Double preco;
-    
+    CategoriasEnum categoria;
 }

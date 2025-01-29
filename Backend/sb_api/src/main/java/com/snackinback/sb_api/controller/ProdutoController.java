@@ -36,7 +36,7 @@ public class ProdutoController {
         return produtoService.getProdutoById(id);
     }
     @PatchMapping("/{id}")
-    public void updateProduto(@PathVariable Long id,@RequestBody Produto request){
+    public void updateProduto(@PathVariable Long id, @RequestBody Produto request){
         produtoService.updateProduto(id, request);
     }
     @DeleteMapping("/{id}")

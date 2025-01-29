@@ -189,16 +189,16 @@ let subtotalItemsDiv = document.querySelector(".subtotalItemsDiv");
 let subtotalPrice = document.querySelector(".subtotalPrice");
 let subtotal = 0;
 
-const options = {
+const optionsGET = {
   method: "GET",
 };
 
-fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=burger", options)
+fetch("http://localhost:8080/api/v1/produtos", optionsGET)
   .then((response) => response.json())
   .then((data) => {
     console.log(data);
 
-    for (let index = 0; index < data.meals.length; index++) {
+    for (let index = 0; index < data.length; index++) {
       let tableGrid = document.createElement("div");
       tableGrid.className = "tableGrid";
       let itemImage = document.createElement("div");
@@ -207,6 +207,8 @@ fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=burger", options)
       productName.id = "productName";
       let productPrice = document.createElement("h3");
       productPrice.id = "productPrice";
+      let productCategory = document.createElement("h3");
+      productCategory.id = "productCategory";
       let productInfos = document.createElement("div");
       productInfos.appendChild(productName);
       productInfos.appendChild(productPrice);
@@ -223,11 +225,23 @@ fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=burger", options)
 
       let productImg = document.createElement("img");
 
-      productImg.src = data.meals[index].strMealThumb;
-      productName.textContent = data.meals[index].strMeal;
-      productPrice.textContent = "R$" + (Math.random(1) * 50).toFixed(2);
+      productName.textContent = data[index].nome;
+      if (productCategory.textContent == "BEBIDA") {
+        productImg.src = "../Imgs/images/eachCategory/bebida.webp";
+      }
+      if (productCategory.textContent == "COMBO") {
+        productImg.src = "../Imgs/images/eachCategory/combo.jpg";
+      }
+      if (productCategory.textContent == "ACOMPANHAMENTO") {
+        productImg.src = "../Imgs/images/eachCategory/acompanhamento.jpg";
+      }
+      if (productCategory.textContent == "LANCHE") {
+        productImg.src = "../Imgs/images/eachCategory/lanche.jpg";
+      }
+      productPrice.textContent = "R$" + data[index].preco;
       let cutProductName = productName.textContent.slice(0, 10) + "...";
       productName.textContent = cutProductName;
+
       itemImage.appendChild(productImg);
 
       let cartImg = document.createElement("img");
@@ -334,4 +348,30 @@ fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=burger", options)
         });
       });
     }
+  });
+
+let comandaAdicionada = {
+  items: [productNameDiv],
+  codigoDoPedido: "",
+  status: "",
+  subtotal: subtotal.value,
+  pedidoCriadoEm: "",
+  update: "",
+  metodoDePagamento: selectPayment.value,
+};
+
+console.log(JSON.stringify(comandaAdicionada));
+
+const optionsPOST = {
+  method: "POST",
+  body: JSON.stringify(comandaAdicionada),
+  headers: {
+    "Content-Type": "application/json",
+  },
+};
+
+fetch("http://localhost:8080/api/v1/comandas", optionsPOST)
+  .then((response) => response)
+  .then((data) => {
+    console.log(data);
   });

@@ -28,6 +28,5 @@ public class Item {
     @JoinColumn(name = "comanda_id")
     // @JsonIgnore 
     private Comanda comanda;
-    
     private Integer quantidade;
 }

@@ -4,7 +4,6 @@ let closeButton = document.querySelector(".closeButton");
 let createItem = document.querySelector(".createItem");
 let buttonCancel = document.querySelector(".buttonCancel");
 let buttonCreate = document.querySelector(".buttonCreate");
-let categoryOptions = ["Lanche", "Acompanhamento", "Bebida", "Combo"];
 
 let inputName = document.querySelector("#inputName");
 let selectCategory = document.querySelector("#selectCategory");
@@ -15,6 +14,7 @@ let gridSection = document.querySelector(".gridSection");
 
 const inputFile = document.querySelector("#files");
 const imgArea = document.querySelector(".imgDivModal");
+const imageImg = document.querySelector("#imageImg");
 //Abrir Modal
 let createListenerAdded = false;
 
@@ -44,6 +44,7 @@ createItem.addEventListener("click", () => {
     let produtoAdicionado = {
       nome: inputName.value,
       preco: inputPrice.value,
+      categoria: selectCategory.value,
     };
 
     const optionsPOST = {
@@ -97,12 +98,22 @@ fetch("http://localhost:8080/api/v1/produtos", optionsGET)
       buttonsGridDiv.style.gap = "10px";
       eachID.value = data[index].id;
       productName.textContent = data[index].nome;
-      productCategory.textContent = selectCategory.value;
+      productCategory.textContent = data[index].categoria;
       productPrice.textContent = "R$" + data[index].preco;
 
-      itemImage.src = imgArea.querySelector("img")
-        ? imgArea.querySelector("img").src
-        : "";
+      if (productCategory.textContent == "BEBIDA") {
+        itemImage.src = "../../Imgs/images/eachCategory/bebida.jpg";
+      } else if (productCategory.textContent == "ACOMPANHAMENTO") {
+        itemImage.src = "../../Imgs/images/eachCategory/acompanhamento.jpg";
+      } else if (productCategory.textContent == "LANCHE") {
+        itemImage.src = "../../Imgs/images/eachCategory/lanche.jpg";
+      } else if (productCategory.textContent == "COMBO") {
+        itemImage.src = "../../Imgs/images/eachCategory/combo.jpg";
+      }
+
+      // itemImage.src = imgArea.querySelector("img")
+      //   ? imgArea.querySelector("img").src
+      //   : "";
       editImg.src = "../../Imgs/icons/editIcon.svg";
 
       deleteImg.src = "../../Imgs/icons/deleteIcon.svg";

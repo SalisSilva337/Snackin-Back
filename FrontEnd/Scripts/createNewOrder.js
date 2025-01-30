@@ -182,8 +182,6 @@ backToData.addEventListener("click", () => {
   gridMenu.style.border = "0px";
 });
 
-finishOrder.addEventListener("click", () => {});
-
 let ItemsTable = document.querySelector(".ItemsTable");
 let subtotalItemsDiv = document.querySelector(".subtotalItemsDiv");
 let subtotalPrice = document.querySelector(".subtotalPrice");
@@ -210,8 +208,7 @@ fetch("http://localhost:8080/api/v1/produtos", optionsGET)
       let productCategory = document.createElement("h3");
       productCategory.id = "productCategory";
       let productInfos = document.createElement("div");
-      productInfos.appendChild(productName);
-      productInfos.appendChild(productPrice);
+
       let itemsCountDiv = document.createElement("div");
       itemsCountDiv.className = "itemsCountDiv";
       let subButton = document.createElement("button");
@@ -226,17 +223,18 @@ fetch("http://localhost:8080/api/v1/produtos", optionsGET)
       let productImg = document.createElement("img");
 
       productName.textContent = data[index].nome;
+      productCategory.textContent = data[index].categoria;
       if (productCategory.textContent == "BEBIDA") {
-        productImg.src = "../Imgs/images/eachCategory/bebida.webp";
+        productImg.src = "../../Imgs/images/eachCategory/bebida.jpg";
       }
       if (productCategory.textContent == "COMBO") {
-        productImg.src = "../Imgs/images/eachCategory/combo.jpg";
+        productImg.src = "../../Imgs/images/eachCategory/combo.jpg";
       }
       if (productCategory.textContent == "ACOMPANHAMENTO") {
-        productImg.src = "../Imgs/images/eachCategory/acompanhamento.jpg";
+        productImg.src = "../../Imgs/images/eachCategory/acompanhamento.jpg";
       }
       if (productCategory.textContent == "LANCHE") {
-        productImg.src = "../Imgs/images/eachCategory/lanche.jpg";
+        productImg.src = "../../Imgs/images/eachCategory/lanche.jpg";
       }
       productPrice.textContent = "R$" + data[index].preco;
       let cutProductName = productName.textContent.slice(0, 10) + "...";
@@ -271,6 +269,9 @@ fetch("http://localhost:8080/api/v1/produtos", optionsGET)
         count++;
         itemCount.value = count;
       });
+      productInfos.appendChild(productName);
+      productInfos.appendChild(productPrice);
+      productInfos.appendChild(productCategory);
       tableGrid.appendChild(itemImage);
       tableGrid.appendChild(productInfos);
 
@@ -296,6 +297,10 @@ fetch("http://localhost:8080/api/v1/produtos", optionsGET)
         const productCartName = document.createElement("h3");
         productCartName.textContent = productName.textContent;
         productNameDiv.appendChild(productCartName);
+
+        const productCartCategory = document.createElement("h3");
+        productCartCategory.textContent = productCategory.textContent;
+        productNameDiv.appendChild(productCartCategory);
 
         // Criando a div "priceCartDiv"
         const priceCartDiv = document.createElement("div");
@@ -346,32 +351,52 @@ fetch("http://localhost:8080/api/v1/produtos", optionsGET)
           subtotal = subtotal - eachProductPrice;
           subtotalPrice.textContent = "R$" + subtotal.toFixed(2);
         });
+        finishOrder.addEventListener("click", () => {
+          let itensAdicionados = {
+            produtoNome: productCartName.textContent,
+            categoria: productCartCategory.textContent,
+            quantidade: itemCount.value,
+            totalItem: productCartPrice.textContent,
+          };
+          let comandaAdicionada = {
+            items: [itensAdicionados],
+            codigoDoPedido: "",
+            status: "",
+            subtotal: subtotal.value,
+            pedidoCriadoEm: "",
+            update: "",
+            metodoDePagamento: selectPayment.value,
+          };
+
+          console.log(JSON.stringify(comandaAdicionada));
+          let optionsPOSTBodyItem = {
+            method: "POST",
+            body: JSON.stringify(itensAdicionados),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          };
+          let optionsPOSTBodyComanda = {
+            method: "POST",
+            body: JSON.stringify(comandaAdicionada),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          };
+          fetch(
+            "http://localhost:8080/api/v1/comandas/item",
+            optionsPOSTBodyItem
+          )
+            .then((response) => response)
+            .then((data) => {
+              console.log(data);
+            });
+          fetch("http://localhost:8080/api/v1/comandas", optionsPOSTBodyComanda)
+            .then((response) => response)
+            .then((data) => {
+              console.log(data);
+            });
+        });
       });
     }
-  });
-
-let comandaAdicionada = {
-  items: [productNameDiv],
-  codigoDoPedido: "",
-  status: "",
-  subtotal: subtotal.value,
-  pedidoCriadoEm: "",
-  update: "",
-  metodoDePagamento: selectPayment.value,
-};
-
-console.log(JSON.stringify(comandaAdicionada));
-
-const optionsPOST = {
-  method: "POST",
-  body: JSON.stringify(comandaAdicionada),
-  headers: {
-    "Content-Type": "application/json",
-  },
-};
-
-fetch("http://localhost:8080/api/v1/comandas", optionsPOST)
-  .then((response) => response)
-  .then((data) => {
-    console.log(data);
   });

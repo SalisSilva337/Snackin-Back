@@ -14,11 +14,12 @@ import lombok.RequiredArgsConstructor;
 public class ClienteService {
     private final ClienteRepository clienteRepository;
 
-    public void addProduto(Cliente request){
+    public void addCliente(Cliente request){
+        
         clienteRepository.save(request);
     }
 
-     public Cliente getProdutoById(Long id){
+     public Cliente getClienteById(Long id){
         
         if (id==null) throw new RuntimeException("ID inválido.");
         Cliente cliente = clienteRepository.findById(id)
@@ -33,7 +34,7 @@ public class ClienteService {
         return clienteRepository.findAll();
     }
 
-    public void updateProduto(Long id, Cliente update){
+    public void updateCliente(Long id, Cliente update){
         if(id == null)throw new RuntimeException("ID inválido");
         
             Cliente cliente = clienteRepository.findById(id)
@@ -47,7 +48,7 @@ public class ClienteService {
 
     }
 
-    public void deleteItem(Long id){
+    public void deleteCliente(Long id){
         if(id == null)throw new RuntimeException("ID inválido.");
         clienteRepository.deleteById(id);
     }

@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang3.RandomStringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.snackinback.sb_api.model.Comanda;
@@ -26,29 +28,38 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class ComandaService {
-
+    private static Logger logger = LoggerFactory.getLogger(ComandaService.class);
     private final ComandaRepository comandaRepository;
     private final ItemRepository itemRepository;
     private final ProdutoRepository produtoRepository;
 
     // SERVIÇOS DA COMANDA
     @SuppressWarnings("deprecation")
-    public void addComanda(){
+    public ComandaResponseDto addComanda(){
         String nPedido = RandomStringUtils.randomAlphanumeric(4).toUpperCase();
-        Comanda comanda = comandaRepository.findByCodigoDoPedido(nPedido).orElse(new Comanda());//busca pelo numero
+        Comanda comanda = comandaRepository
+            .findByCodigoDoPedido(nPedido)
+            .orElse(new Comanda(
+                new ArrayList<>(),
+                null,
+                nPedido,
+                ComandaStatusEnum.PENDENTE,
+                0.0,
+                LocalDateTime.now(),
+                LocalDateTime.now(),
+                MetodoDePagamentoEnum.PIX
+            ));
 
-        if(comanda.getCodigoDoPedido() == null){
-            comanda.setCodigoDoPedido(nPedido);
-            comanda.setMetodoDePagamento(MetodoDePagamentoEnum.PIX);
-            comanda.setPedidoCriadoEm(LocalDateTime.now());
-            comanda.setUpdate(LocalDateTime.now());
-            comanda.setStatus(ComandaStatusEnum.PENDENTE);
-            comanda.setSubtotal(0.0);
-    
-            comanda = comandaRepository.save(comanda);
-            return;
-        } 
-        throw new RuntimeException("Erro ao criar o pedido!");
+        comandaRepository.save(comanda);
+        return new ComandaResponseDto(
+            comanda.getId(),
+            comanda.getItem(),
+            nPedido,
+            comanda.getSubtotal(),
+            comanda.getStatus(),
+            comanda.getPedidoCriadoEm(),
+            comanda.getMetodoDePagamento());
+        
     }
 
     public Comanda getComandaById(Long id){
@@ -128,14 +139,17 @@ public class ComandaService {
 
     // SERVIÇOS DE ITEM
     public void addItem(ItemRequestDto request){
-        
+        logger.info(Long.toString(request.getComandaId()));
         Produto produto = produtoRepository.findById(request.getProdutoId()).orElseThrow(() -> new RuntimeException("erro"));
         Comanda comanda = comandaRepository.findById(request.getComandaId()).orElseThrow(() -> new RuntimeException("erro"));
         Item item = new Item();
         item.setComanda(comanda);
         item.setProduto(produto);
         item.setQuantidade(request.getQuantidade());
-        itemRepository.save(item);
+        item = itemRepository.save(item);
+        logger.info(Integer.toString(item.getId()));
+        comanda.getItem().add(itemRepository.findById(Long.parseLong(Integer.toString(item.getId()))).get());
+        comandaRepository.save(comanda);
     }
 
     public Item getItemById(Long id){

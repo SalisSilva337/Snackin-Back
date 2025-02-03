@@ -2,7 +2,6 @@ package com.snackinback.sb_api.model.dto;
 
 import com.snackinback.sb_api.model.enums.CategoriasEnum;
 
-import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,10 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ProdutoRequestDto {
-    
-    @Id
-    private Integer id;
-    
+        
     private String nome;
     private Double preco;
     private CategoriasEnum categoria;

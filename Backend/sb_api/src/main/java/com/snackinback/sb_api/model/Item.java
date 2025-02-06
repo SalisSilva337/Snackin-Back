@@ -1,5 +1,7 @@
 package com.snackinback.sb_api.model;
 
+import java.math.BigDecimal;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Entity;
@@ -32,5 +34,24 @@ public class Item {
     @JsonBackReference
     private Comanda comanda;
     private Integer quantidade;
-    private Double totalItem;
+    private BigDecimal precoUnitario = BigDecimal.ZERO;
+
+    public void setProduto(Produto produto) {
+        this.produto = produto;
+        // Definir precoUnitario automaticamente quando o Produto é associado
+        if (produto != null) {
+            this.precoUnitario = produto.getPreco();
+        }
+    }
+    
+    public BigDecimal getTotalItem() {
+        return precoUnitario.multiply(BigDecimal.valueOf(quantidade));
+    }
+
+    public Item(Produto produto, Comanda comanda, Integer quantidade, BigDecimal precoUnitario) {
+        this.produto = produto;
+        this.comanda = comanda;
+        this.quantidade = quantidade;
+        this.precoUnitario = precoUnitario;
+    }
 }

@@ -1,5 +1,6 @@
 package com.snackinback.sb_api.model;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -32,6 +33,6 @@ public class Produto {
     private List<Item> item;
 
     String nome;
-    Double preco;
+    BigDecimal preco;
     CategoriasEnum categoria;
 }

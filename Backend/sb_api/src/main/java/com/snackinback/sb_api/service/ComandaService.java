@@ -1,8 +1,10 @@
 package com.snackinback.sb_api.service;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.RandomStringUtils;
@@ -13,10 +15,8 @@ import org.springframework.stereotype.Service;
 import com.snackinback.sb_api.model.Comanda;
 import com.snackinback.sb_api.model.Item;
 import com.snackinback.sb_api.model.Produto;
-import com.snackinback.sb_api.model.dto.ClienteResponseDto;
 import com.snackinback.sb_api.model.dto.ComandaResponseDto;
 import com.snackinback.sb_api.model.dto.ComandaStatusRequestDto;
-import com.snackinback.sb_api.model.dto.EnderecoResponseDto;
 import com.snackinback.sb_api.model.dto.ItemRequestDto;
 import com.snackinback.sb_api.model.dto.ItemResponseDto;
 import com.snackinback.sb_api.model.dto.ItemUpdateRequestDto;
@@ -47,7 +47,7 @@ public class ComandaService {
                 null,
                 nPedido,
                 ComandaStatusEnum.PENDENTE,
-                0.0,
+                BigDecimal.ZERO,
                 LocalDateTime.now(),
                 LocalDateTime.now(),
                 MetodoDePagamentoEnum.PIX
@@ -72,27 +72,28 @@ public class ComandaService {
          .orElseThrow(
                 () -> new RuntimeException("Comanda não encontrada.")
                 );
-
+                
+        BigDecimal subtotal = calcularSubtotal(comanda);
+        comanda.setSubtotal(subtotal);  // Atualiza o subtotal
+        
         List<ItemResponseDto> itensDto = comanda.getItem()
             .stream()
             .map(item -> new ItemResponseDto(
                                                 item.getProduto().getNome(), 
                                                 item.getProduto().getCategoria(),  
                                                 item.getQuantidade(), 
-                                                item.getTotalItem()))
+                                                item.getPrecoUnitario()))
             .collect(Collectors.toList());
-
         
         return new ComandaResponseDto(
                                          comanda.getId(),
                                          itensDto,
                                          comanda.getCodigoDoPedido(),
-                                         comanda.getSubtotal(),
+                                         subtotal,
                                          comanda.getStatus(),
                                          comanda.getPedidoCriadoEm(),
-                                         comanda.getMetodoDePagamento()
-                                         
-            );
+                                         comanda.getMetodoDePagamento()      
+                                    );
                 
     }
 
@@ -101,7 +102,7 @@ public class ComandaService {
         List<ComandaResponseDto> response = new ArrayList<>();
         List<ItemResponseDto> responseItem = new ArrayList<>();
         ComandaResponseDto itemComanda;
-        ItemResponseDto item;
+        ItemResponseDto item = new ItemResponseDto();
 
         for (Comanda comanda : comandas) {
             itemComanda = new ComandaResponseDto();
@@ -111,15 +112,15 @@ public class ComandaService {
             itemComanda.setStatus(comanda.getStatus());
             itemComanda.setMetodoDePagamento(comanda.getMetodoDePagamento());
 
-            double cont = 0.0;
+            BigDecimal cont = BigDecimal.ZERO;
 
             for (Item i : comanda.getItem()) {
                 item = new ItemResponseDto();
                 item.setProdutoNome(i.getProduto().getNome());
                 item.setCategoria(i.getProduto().getCategoria());
                 item.setQuantidade(i.getQuantidade());
-                item.setTotalItem(i.getQuantidade()*i.getProduto().getPreco());
-                cont += item.getTotalItem();
+                item.setPrecoUnitario(i.getPrecoUnitario());
+                cont = cont.add(i.getTotalItem());
                 responseItem.add(item);
             }
             
@@ -176,19 +177,44 @@ public class ComandaService {
         comandaRepository.save(comanda);
     }
 
-    public Item getItemById(Long id){
+    public ItemResponseDto getItemById(Long id){
         
         if (id==null) throw new RuntimeException("ID inválido.");
         Item item = itemRepository.findById(id)
          .orElseThrow(
                 () -> new RuntimeException("Item não encontrado.")
                 );
-        return item;
+
+        return new ItemResponseDto(
+                                    item.getProduto().getNome(), 
+                                    item.getProduto().getCategoria(), 
+                                    item.getQuantidade(), 
+                                    item.getPrecoUnitario()
+                                );
                 
     }
     
-    public List<Item> listarTodosOsItens(){
-        return itemRepository.findAll();
+    public List<ItemResponseDto> listarTodosOsItens(){
+        // Supondo que você tenha um repositório para buscar todos os itens
+    List<Item> itens = itemRepository.findAll();  // Buscar todos os itens no banco de dados
+
+    // Criar uma lista para armazenar os DTOs
+    List<ItemResponseDto> itemResponseDtos = new ArrayList<>();
+
+    // Iterar sobre os itens e mapear para ItemResponseDto
+    for (Item item : itens) {
+        ItemResponseDto itemResponseDto = new ItemResponseDto(
+            item.getProduto().getNome(),
+            item.getProduto().getCategoria(),
+            item.getQuantidade(),
+            item.getPrecoUnitario()
+        );
+        
+        // Adicionar o ItemResponseDto à lista
+        itemResponseDtos.add(itemResponseDto);
+    }
+
+    return itemResponseDtos;  // Retornar a lista de ItemResponseDto
     }
 
     public void updateItem(Long id, ItemUpdateRequestDto update){
@@ -208,7 +234,16 @@ public class ComandaService {
         if(id == null)throw new RuntimeException("ID inválido");
         itemRepository.deleteById(id);
     }
-
+    
+    // MÉTODOS
+    private BigDecimal calcularSubtotal(Comanda comanda) {
+       // Utiliza stream para somar o totalItem de cada Item
+    return comanda.getItem().stream()
+        .map(Item::getTotalItem)  // Pega o valor de totalItem de cada Item
+        .filter(Objects::nonNull)  // Garante que não estamos somando valores nulos
+        .reduce(BigDecimal.ZERO, BigDecimal::add);  // Soma todos os valores
+    }
+    
 }
 
 

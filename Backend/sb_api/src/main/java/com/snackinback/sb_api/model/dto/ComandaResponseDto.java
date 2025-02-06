@@ -1,10 +1,9 @@
 package com.snackinback.sb_api.model.dto;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
-import com.snackinback.sb_api.model.Item;
 import com.snackinback.sb_api.model.enums.ComandaStatusEnum;
 import com.snackinback.sb_api.model.enums.MetodoDePagamentoEnum;
 
@@ -19,11 +18,10 @@ public class ComandaResponseDto {
     private Integer comandaId;
     private List<ItemResponseDto> items;
     private String codigoDoPedido;
-    private Double subtotal;
+    private BigDecimal subtotal;
     private ComandaStatusEnum status;
     private LocalDateTime pedidoCriadoEm;
     private MetodoDePagamentoEnum metodoDePagamento;
-
 
     // public ComandaResponseDto(Integer comandaId, 
     //     List<Item> itemsModel, 

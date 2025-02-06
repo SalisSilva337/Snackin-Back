@@ -1,5 +1,7 @@
 package com.snackinback.sb_api.model.dto;
 
+import java.math.BigDecimal;
+
 import com.snackinback.sb_api.model.enums.CategoriasEnum;
 
 import lombok.AllArgsConstructor;
@@ -13,5 +15,9 @@ public class ItemResponseDto {
     private String produtoNome;
     private CategoriasEnum categoria;
     private Integer quantidade;
-    private Double totalItem;
+    private BigDecimal precoUnitario = BigDecimal.ZERO;
+
+    public BigDecimal getTotalItem() {
+        return precoUnitario.multiply(BigDecimal.valueOf(quantidade));
+    }
 }

@@ -3,6 +3,7 @@ package com.snackinback.sb_api.model;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.snackinback.sb_api.model.enums.ComandaStatusEnum;
 import com.snackinback.sb_api.model.enums.MetodoDePagamentoEnum;
 
@@ -30,7 +31,9 @@ public class Comanda {
     private Integer id;
 
     @OneToMany(mappedBy = "comanda", cascade=CascadeType.ALL)
+    @JsonManagedReference
     private List<Item> item;
+    
     @ManyToOne
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;

@@ -3,6 +3,7 @@ package com.snackinback.sb_api.model;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.snackinback.sb_api.model.enums.CategoriasEnum;
 
 import jakarta.persistence.CascadeType;
@@ -27,6 +28,7 @@ public class Produto {
 
     @OneToMany(mappedBy = "produto", cascade=CascadeType.ALL)
     @JsonIgnore
+    @JsonManagedReference
     private List<Item> item;
 
     String nome;

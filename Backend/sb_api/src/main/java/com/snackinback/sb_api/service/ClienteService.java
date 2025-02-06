@@ -1,10 +1,13 @@
 package com.snackinback.sb_api.service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
 import com.snackinback.sb_api.model.Cliente;
+import com.snackinback.sb_api.model.dto.ClienteResponseDto;
+import com.snackinback.sb_api.model.dto.EnderecoResponseDto;
 import com.snackinback.sb_api.repository.ClienteRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -19,15 +22,29 @@ public class ClienteService {
         clienteRepository.save(request);
     }
 
-     public Cliente getClienteById(Long id){
+     public ClienteResponseDto getClienteById(Long id){
         
         if (id==null) throw new RuntimeException("ID inválido.");
+
         Cliente cliente = clienteRepository.findById(id)
          .orElseThrow(
                 () -> new RuntimeException("Cliente não encontrado")
                 );
-        return cliente;
-                
+
+        List<EnderecoResponseDto> enderecosDto = cliente.getEndereco()
+            .stream()
+            .map(endereco -> new EnderecoResponseDto(endereco.getId(), 
+                                                     endereco.getCep(), 
+                                                     endereco.getNomeDaRua(), 
+                                                     endereco.getNumeroDaCasa())
+            )
+            .collect(Collectors.toList());
+
+            return new ClienteResponseDto(cliente.getId(), 
+                                         cliente.getNome(), 
+                                         cliente.getTelefone(), 
+                                         enderecosDto
+                                    );
     }
 
     public List<Cliente> listarTodosOsClientes(){

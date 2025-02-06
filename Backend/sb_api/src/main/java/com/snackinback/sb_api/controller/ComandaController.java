@@ -29,7 +29,7 @@ public class ComandaController {
         comandaService.addComanda();
     }
     @GetMapping("/{id}")
-    public Comanda getById(@PathVariable Long id){
+    public ComandaResponseDto getById(@PathVariable Long id){
         return comandaService.getComandaById(id);
     }
     @GetMapping

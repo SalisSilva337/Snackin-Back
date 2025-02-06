@@ -3,6 +3,7 @@ package com.snackinback.sb_api.service;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.slf4j.Logger;
@@ -12,8 +13,10 @@ import org.springframework.stereotype.Service;
 import com.snackinback.sb_api.model.Comanda;
 import com.snackinback.sb_api.model.Item;
 import com.snackinback.sb_api.model.Produto;
+import com.snackinback.sb_api.model.dto.ClienteResponseDto;
 import com.snackinback.sb_api.model.dto.ComandaResponseDto;
 import com.snackinback.sb_api.model.dto.ComandaStatusRequestDto;
+import com.snackinback.sb_api.model.dto.EnderecoResponseDto;
 import com.snackinback.sb_api.model.dto.ItemRequestDto;
 import com.snackinback.sb_api.model.dto.ItemResponseDto;
 import com.snackinback.sb_api.model.dto.ItemUpdateRequestDto;
@@ -35,7 +38,7 @@ public class ComandaService {
 
     // SERVIÇOS DA COMANDA
     @SuppressWarnings("deprecation")
-    public ComandaResponseDto addComanda(){
+    public void addComanda(){
         String nPedido = RandomStringUtils.randomAlphanumeric(4).toUpperCase();
         Comanda comanda = comandaRepository
             .findByCodigoDoPedido(nPedido)
@@ -51,25 +54,45 @@ public class ComandaService {
             ));
 
         comandaRepository.save(comanda);
-        return new ComandaResponseDto(
-            comanda.getId(),
-            comanda.getItem(),
-            nPedido,
-            comanda.getSubtotal(),
-            comanda.getStatus(),
-            comanda.getPedidoCriadoEm(),
-            comanda.getMetodoDePagamento());
+        // return new ComandaResponseDto(
+        //     comanda.getId(),
+        //     comanda.getItem(),
+        //     nPedido,
+        //     comanda.getSubtotal(),
+        //     comanda.getStatus(),
+        //     comanda.getPedidoCriadoEm(),
+        //     comanda.getMetodoDePagamento());
         
     }
 
-    public Comanda getComandaById(Long id){
+    public ComandaResponseDto getComandaById(Long id){
         
         if (id==null) throw new RuntimeException("ID inválido.");
         Comanda comanda = comandaRepository.findById(id)
          .orElseThrow(
                 () -> new RuntimeException("Comanda não encontrada.")
                 );
-        return comanda;
+
+        List<ItemResponseDto> itensDto = comanda.getItem()
+            .stream()
+            .map(item -> new ItemResponseDto(
+                                                item.getProduto().getNome(), 
+                                                item.getProduto().getCategoria(),  
+                                                item.getQuantidade(), 
+                                                item.getTotalItem()))
+            .collect(Collectors.toList());
+
+        
+        return new ComandaResponseDto(
+                                         comanda.getId(),
+                                         itensDto,
+                                         comanda.getCodigoDoPedido(),
+                                         comanda.getSubtotal(),
+                                         comanda.getStatus(),
+                                         comanda.getPedidoCriadoEm(),
+                                         comanda.getMetodoDePagamento()
+                                         
+            );
                 
     }
 
@@ -114,6 +137,7 @@ public class ComandaService {
                     .orElseThrow(
                             () -> new RuntimeException("Comanda não encontrada.")
                         );
+
             comanda.setStatus(update.getStatus());
             comanda.setMetodoDePagamento(update.getMetodoDePagamento());
             

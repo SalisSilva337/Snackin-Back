@@ -1,5 +1,7 @@
 package com.snackinback.sb_api.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,11 +24,13 @@ public class Item {
 
     @ManyToOne
     @JoinColumn(name = "produto_id")
+    @JsonBackReference
     private Produto produto;
 
     @ManyToOne
     @JoinColumn(name = "comanda_id")
-    // @JsonIgnore 
+    @JsonBackReference
     private Comanda comanda;
     private Integer quantidade;
+    private Double totalItem;
 }

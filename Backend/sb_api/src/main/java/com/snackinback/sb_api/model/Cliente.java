@@ -2,6 +2,8 @@ package com.snackinback.sb_api.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -24,8 +26,9 @@ public class Cliente {
     private String nome;
     private Integer telefone;
 
-    // @OneToMany(mappedBy = "endereco", cascade = CascadeType.ALL)
-    // private List <Endereco> endereco;
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<Endereco> endereco;
 
     // @OneToMany(mappedBy = "comanda", cascade = CascadeType.ALL)
     // private List <Comanda> comanda;

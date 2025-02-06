@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.snackinback.sb_api.model.Cliente;
+import com.snackinback.sb_api.model.dto.ClienteResponseDto;
 import com.snackinback.sb_api.service.ClienteService;
 
 import lombok.RequiredArgsConstructor;
@@ -32,7 +33,7 @@ public class ClienteController {
         return clienteService.listarTodosOsClientes();
     }
     @GetMapping("/{id}")
-    public Cliente getClienteById(@PathVariable Long id){
+    public ClienteResponseDto getClienteById(@PathVariable Long id){
         return clienteService.getClienteById(id);
     }
     @PatchMapping("/{id}")

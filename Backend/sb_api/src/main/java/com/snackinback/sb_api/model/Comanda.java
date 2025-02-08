@@ -1,8 +1,10 @@
 package com.snackinback.sb_api.model;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.snackinback.sb_api.model.enums.ComandaStatusEnum;
 import com.snackinback.sb_api.model.enums.MetodoDePagamentoEnum;
 
@@ -30,7 +32,9 @@ public class Comanda {
     private Integer id;
 
     @OneToMany(mappedBy = "comanda", cascade=CascadeType.ALL)
+    @JsonManagedReference
     private List<Item> item;
+    
     @ManyToOne
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
@@ -38,12 +42,12 @@ public class Comanda {
     @Column(unique = true)
     private String codigoDoPedido;
     private ComandaStatusEnum status;
-    private Double subtotal;
+    private BigDecimal subtotal;
     private LocalDateTime pedidoCriadoEm;
     private LocalDateTime update;
     private MetodoDePagamentoEnum metodoDePagamento;
     
-    public Comanda(List<Item> item, Cliente cliente, String codigoDoPedido, ComandaStatusEnum status, Double subtotal,
+    public Comanda(List<Item> item, Cliente cliente, String codigoDoPedido, ComandaStatusEnum status, BigDecimal subtotal,
             LocalDateTime pedidoCriadoEm, LocalDateTime update, MetodoDePagamentoEnum metodoDePagamento) {
         this.item = item;
         this.cliente = cliente;
@@ -54,5 +58,4 @@ public class Comanda {
         this.update = update;
         this.metodoDePagamento = metodoDePagamento;
     }
-
 }

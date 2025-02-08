@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.snackinback.sb_api.model.Comanda;
 import com.snackinback.sb_api.model.dto.ComandaResponseDto;
 import com.snackinback.sb_api.model.dto.ItemRequestDto;
+import com.snackinback.sb_api.model.dto.ItemResponseDto;
 import com.snackinback.sb_api.service.ComandaService;
 
 import lombok.RequiredArgsConstructor;
@@ -29,7 +29,7 @@ public class ComandaController {
         comandaService.addComanda();
     }
     @GetMapping("/{id}")
-    public Comanda getById(@PathVariable Long id){
+    public ComandaResponseDto getById(@PathVariable Long id){
         return comandaService.getComandaById(id);
     }
     @GetMapping
@@ -47,6 +47,14 @@ public class ComandaController {
     @PostMapping("/item")
     public void addItem(@RequestBody ItemRequestDto request){
         comandaService.addItem(request);
+    }
+    @GetMapping("/item/{id}")
+    public ItemResponseDto getItemById(@PathVariable Long id){
+        return comandaService.getItemById(id);
+    }
+    @GetMapping("/itens")
+    public List<ItemResponseDto> getAllItens(){
+        return comandaService.listarTodosOsItens();
     }
 }
 

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.snackinback.sb_api.model.Endereco;
+import com.snackinback.sb_api.model.dto.EnderecoResponseDto;
 import com.snackinback.sb_api.service.EnderecoService;
 
 import lombok.RequiredArgsConstructor;
@@ -26,7 +27,7 @@ public class EnderecoController {
     private final EnderecoService enderecoService;
 
     @PostMapping
-    public void adicionarEndereco(@RequestBody Endereco request){
+    public void adicionarEndereco(@RequestBody EnderecoResponseDto request){
         enderecoService.addEndereco(request);
     }
     @GetMapping

@@ -1,5 +1,7 @@
 package com.snackinback.sb_api.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,10 +22,12 @@ public class Endereco {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    // @ManyToOne
-    // @JoinColumn(name = "cliente_id")
-    // private Cliente cliente;
-    private String cep;
-    private Integer rua;
-    private Integer numero_da_casa;
+    @ManyToOne
+    @JoinColumn(name = "cliente_id")
+    @JsonBackReference
+    private Cliente cliente;
+
+    private Integer cep;
+    private String nomeDaRua;
+    private Integer numeroDaCasa;
 }

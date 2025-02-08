@@ -1,3 +1,7 @@
+import ApiService from './service.js';
+
+const api = new ApiService('http://localhost:8080');
+
 let spanSelectedButton = document.querySelector("#spanSelectedButton");
 let buttonsPlaces = document.querySelectorAll(".buttonsLocal");
 
@@ -352,6 +356,7 @@ fetch("http://localhost:8080/api/v1/produtos", optionsGET)
           subtotalPrice.textContent = "R$" + subtotal.toFixed(2);
         });
         finishOrder.addEventListener("click", () => {
+          // api.getComandas().then((comandas) => console.log(comandas)); 
           let itensAdicionados = {
             produtoNome: productCartName.textContent,
             categoria: productCartCategory.textContent,

@@ -86,8 +86,10 @@ nav button:hover {
   border: 1px solid;
   box-shadow: 1px 1px 10px rgb(0, 0, 0, 0.1);
   border-radius: 10px;
+  height: max-content;
   margin: 10px;
   padding: 5px;
+  justify-items: center;
 }
 #orderItemsDiv img {
   width: 100px;
@@ -100,9 +102,9 @@ nav button:hover {
   background-color: #eda3a3;
   border-radius: 5px;
   display: flex;
-
+  flex-wrap: wrap;
   overflow: auto;
-  align-items: start;
+  justify-content: left;
 }
 .orderPreparingButtonsDiv {
   display: flex;

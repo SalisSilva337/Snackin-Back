@@ -19,7 +19,15 @@ fetch("http://localhost:8080/api/v1/comandas", optionsGET)
       clientDataDiv.classList.add("clientDataDiv");
 
       const nome = document.createElement("h3");
-      nome.textContent = "Nome: " + "aaa";
+      fetch("http://localhost:8080/api/v1/clientes", optionsGET)
+        .then((response) => response.json())
+        .then((clientes) => {
+          for (let index = 0; index < clientes.length; index++) {
+            console.log(clientes);
+
+            nome.textContent = "Nome: " + clientes[index].nome;
+          }
+        });
       clientDataDiv.appendChild(nome);
 
       const numeroPedido = document.createElement("h3");
@@ -32,7 +40,7 @@ fetch("http://localhost:8080/api/v1/comandas", optionsGET)
       clientDataDiv.appendChild(metodoPagamento);
 
       const subtotal = document.createElement("h3");
-      subtotal.textContent = "Subtotal: " + data[index].subtotal;
+      subtotal.textContent = "Subtotal: R$" + data[index].subtotal;
       clientDataDiv.appendChild(subtotal);
 
       const pedidoCriadoEm = document.createElement("h3");
@@ -62,12 +70,13 @@ fetch("http://localhost:8080/api/v1/comandas", optionsGET)
         const orderItemsName = document.createElement("h3");
         const orderItemsCategory = document.createElement("h4");
         const orderItemsPrice = document.createElement("h4");
+        const orderItemsQuantity = document.createElement("h4");
         const orderItemsImg = document.createElement("img");
         console.log(item);
         orderItemsName.textContent = "Item: " + item.produtoNome;
         orderItemsCategory.textContent = item.categoria;
         orderItemsPrice.textContent = "Valor: R$" + item.precoUnitario;
-
+        orderItemsQuantity.textContent = "Quantidade: " + item.quantidade;
         if (orderItemsCategory.textContent == "BEBIDA") {
           orderItemsImg.src = "../../Imgs/images/eachCategory/bebida.jpg";
         } else if (orderItemsCategory.textContent == "ACOMPANHAMENTO") {
@@ -83,6 +92,7 @@ fetch("http://localhost:8080/api/v1/comandas", optionsGET)
         orderItemsDiv.appendChild(orderItemsImg);
         orderItemsDiv.appendChild(orderItemsName);
         orderItemsDiv.appendChild(orderItemsPrice);
+        orderItemsDiv.appendChild(orderItemsQuantity);
         orderItemsTable.appendChild(orderItemsDiv);
         orderSettingsDiv.appendChild(orderItemsTable);
       });

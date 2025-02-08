@@ -54,8 +54,38 @@ fetch("http://localhost:8080/api/v1/comandas", optionsGET)
       orderSettingsDiv.appendChild(labelItemsTable);
 
       const orderItemsTable = document.createElement("div");
-      orderItemsTable.classList.add("orderItemsTable");
-      orderSettingsDiv.appendChild(orderItemsTable);
+
+      data[index].items.forEach((item) => {
+        const orderItemsDiv = document.createElement("div");
+
+        orderItemsDiv.id = "orderItemsDiv";
+        const orderItemsName = document.createElement("h3");
+        const orderItemsCategory = document.createElement("h4");
+        const orderItemsPrice = document.createElement("h4");
+        const orderItemsImg = document.createElement("img");
+        console.log(item);
+        orderItemsName.textContent = "Item: " + item.produtoNome;
+        orderItemsCategory.textContent = item.categoria;
+        orderItemsPrice.textContent = "Valor: R$" + item.precoUnitario;
+
+        if (orderItemsCategory.textContent == "BEBIDA") {
+          orderItemsImg.src = "../../Imgs/images/eachCategory/bebida.jpg";
+        } else if (orderItemsCategory.textContent == "ACOMPANHAMENTO") {
+          orderItemsImg.src =
+            "../../Imgs/images/eachCategory/acompanhamento.jpg";
+        } else if (orderItemsCategory.textContent == "LANCHE") {
+          orderItemsImg.src = "../../Imgs/images/eachCategory/lanche.jpg";
+        } else if (orderItemsCategory.textContent == "COMBO") {
+          orderItemsImg.src = "../../Imgs/images/eachCategory/combo.jpg";
+        }
+        orderItemsTable.classList.add("orderItemsTable");
+
+        orderItemsDiv.appendChild(orderItemsImg);
+        orderItemsDiv.appendChild(orderItemsName);
+        orderItemsDiv.appendChild(orderItemsPrice);
+        orderItemsTable.appendChild(orderItemsDiv);
+        orderSettingsDiv.appendChild(orderItemsTable);
+      });
 
       const orderPreparingButtonsDiv = document.createElement("div");
       orderPreparingButtonsDiv.classList.add("orderPreparingButtonsDiv");
@@ -91,35 +121,33 @@ fetch("http://localhost:8080/api/v1/comandas", optionsGET)
 
       // Adiciona o gridDiv ao body ou ao elemento desejado
       gridSection.appendChild(gridDiv);
+
+      gridDiv.addEventListener("mouseover", () => {
+        // Adicionar ouvintes de click apenas para o gridElement específico
+        const orderDone = gridDiv.querySelector("#orderDone");
+        const orderDelete = gridDiv.querySelector("#orderDelete");
+        const preparingOrder = gridDiv.querySelector(".preparingOrder");
+
+        if (orderDone && orderDelete && preparingOrder) {
+          // Ouvinte para "Pedido concluído"
+          orderDone.addEventListener("click", () => {
+            orderDone.remove();
+            orderDelete.remove();
+            preparingOrder.textContent = "Pedido concluído";
+            preparingOrder.style.backgroundColor = "#DCEE8A";
+            preparingOrder.style.width = "100%";
+          });
+
+          // Ouvinte para "Pedido cancelado"
+          orderDelete.addEventListener("click", () => {
+            orderDone.remove();
+            orderDelete.remove();
+
+            preparingOrder.style.width = "100%";
+            preparingOrder.textContent = "Pedido cancelado";
+            preparingOrder.style.backgroundColor = "#FF7070";
+          });
+        }
+      });
     }
   });
-
-// gridDiv.forEach((gridElement) => {
-//   gridElement.addEventListener("mouseover", () => {
-//     // Adicionar ouvintes de click apenas para o gridElement específico
-//     const orderDone = gridElement.querySelector("#orderDone");
-//     const orderDelete = gridElement.querySelector("#orderDelete");
-//     const preparingOrder = gridElement.querySelector(".preparingOrder");
-
-//     if (orderDone && orderDelete && preparingOrder) {
-//       // Ouvinte para "Pedido concluído"
-//       orderDone.addEventListener("click", () => {
-//         orderDone.remove();
-//         orderDelete.remove();
-//         preparingOrder.textContent = "Pedido concluído";
-//         preparingOrder.style.backgroundColor = "#DCEE8A";
-//         preparingOrder.style.width = "100%";
-//       });
-
-//       // Ouvinte para "Pedido cancelado"
-//       orderDelete.addEventListener("click", () => {
-//         orderDone.remove();
-//         orderDelete.remove();
-
-//         preparingOrder.style.width = "100%";
-//         preparingOrder.textContent = "Pedido cancelado";
-//         preparingOrder.style.backgroundColor = "#FF7070";
-//       });
-//     }
-//   });
-// });

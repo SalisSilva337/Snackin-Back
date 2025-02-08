@@ -99,8 +99,8 @@ public class ComandaService {
 
     public List<ComandaResponseDto> listarTodasAsComandas(){
         List<Comanda> comandas = comandaRepository.findAll();
+
         List<ComandaResponseDto> response = new ArrayList<>();
-        List<ItemResponseDto> responseItem = new ArrayList<>();
         ComandaResponseDto itemComanda;
         ItemResponseDto item = new ItemResponseDto();
 
@@ -114,6 +114,8 @@ public class ComandaService {
 
             BigDecimal cont = BigDecimal.ZERO;
 
+            List<ItemResponseDto> responseItem = new ArrayList<>();
+            
             for (Item i : comanda.getItem()) {
                 item = new ItemResponseDto();
                 item.setProdutoNome(i.getProduto().getNome());

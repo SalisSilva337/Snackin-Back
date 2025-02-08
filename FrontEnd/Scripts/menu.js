@@ -60,6 +60,8 @@ createItem.addEventListener("click", () => {
       .then((data) => {
         console.log(data);
       });
+
+    window.location.reload();
   });
 });
 

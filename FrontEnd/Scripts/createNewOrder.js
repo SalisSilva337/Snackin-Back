@@ -10,6 +10,7 @@ let divCep = document.querySelector(".addressInputs");
 let cep = document.querySelector("#cepTxt");
 let inputsPlace = document.querySelectorAll(".inputsPlace");
 
+
 buttonsPlaces.forEach((btn) => {
   btn.addEventListener("click", () => {
     console.log(btn.value);
@@ -26,7 +27,6 @@ buttonsPlaces.forEach((btn) => {
       console.log(document.querySelector("#bairroTxt").value);
       console.log(document.querySelector("#numTxt").value);
     } else {
-      isRetiradaComerNoLocal = false;
       divCep.style.display = "block";
     }
   });
@@ -65,7 +65,7 @@ selectPayment.addEventListener("change", () => {
 //Address Part
 
 cep.addEventListener("change", () => {
-  cepvalue = cep.value;
+  let cepvalue = cep.value;
   if (cepvalue !== "") {
     let url = "https://opencep.com/v1/" + cepvalue;
 
